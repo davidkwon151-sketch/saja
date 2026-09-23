@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" role="img" aria-labelledby="title desc">
+<title id="title">연결: 백지장도 맞들면 낫다.</title>
+<desc id="desc">커리어 나침반 명언 카드. 출처: 위키인용집</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#fbf8ef"/><stop offset="1" stop-color="#eaf4e9"/></linearGradient></defs>
+<style>.brand{font:700 26px 'Malgun Gothic',sans-serif;letter-spacing:4px;fill:#236b70}.tag{font:700 27px 'Malgun Gothic',sans-serif;fill:#c65f43}.quote{font:700 68px 'Malgun Gothic',sans-serif;fill:#263a3a}.detail{font:400 29px 'Malgun Gothic',sans-serif;fill:#526767}.source{font:500 23px 'Malgun Gothic',sans-serif;fill:#526767}</style>
+<rect width="1080" height="1080" fill="url(#bg)"/>
+<circle cx="914" cy="156" r="112" fill="none" stroke="#b8cec3" stroke-width="3"/>
+<path d="M914 72v168M830 156h168" stroke="#b8cec3" stroke-width="2"/>
+<path d="M914 102l15 54-15 54-15-54z" fill="#c65f43"/>
+<text x="92" y="124" class="brand">✦ 커리어 나침반</text>
+<text x="92" y="210" class="tag">연결</text>
+<text x="92" y="355" class="quote">백지장도 맞들면 낫다.</text>
+<line x1="92" x2="988" y1="655" y2="655" stroke="#b8cec3" stroke-width="2"/>
+<text x="92" y="732" class="detail">혼자 막히면 동료와 멘토에게 도움을 청해 보세요.</text>
+<text x="92" y="935" class="source">한국 속담 · 위키인용집</text>
+<text x="92" y="982" class="source">원문 주소는 함께 제공된 quotes.json에서 확인하세요.</text>
+</svg>

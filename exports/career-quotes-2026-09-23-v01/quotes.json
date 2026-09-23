@@ -1,0 +1,62 @@
+[
+  {
+    "id": "start-ko",
+    "theme": "도전",
+    "text": "시작이 반이다.",
+    "display_ko": "완벽한 준비보다 첫 지원 한 건이 길을 엽니다.",
+    "attribution": "한국 속담",
+    "source_name": "위키낱말사전",
+    "sourceUrl": "https://ko.wiktionary.org/wiki/시작이_반이다",
+    "image": "cards/start-ko.svg"
+  },
+  {
+    "id": "recover-ko",
+    "theme": "회복",
+    "text": "비 온 뒤에 땅이 굳어진다.",
+    "display_ko": "탈락의 경험도 다음 선택을 더 단단하게 만듭니다.",
+    "attribution": "한국 속담",
+    "source_name": "위키인용집",
+    "sourceUrl": "https://ko.wikiquote.org/wiki/가나다순_한국_속담",
+    "image": "cards/recover-ko.svg"
+  },
+  {
+    "id": "together-ko",
+    "theme": "연결",
+    "text": "백지장도 맞들면 낫다.",
+    "display_ko": "혼자 막히면 동료와 멘토에게 도움을 청해 보세요.",
+    "attribution": "한국 속담",
+    "source_name": "위키인용집",
+    "sourceUrl": "https://ko.wikiquote.org/wiki/가나다순_한국_속담",
+    "image": "cards/together-ko.svg"
+  },
+  {
+    "id": "passion-en",
+    "theme": "가슴 뛰는 일",
+    "text": "Do what you love, and do it well - that's much more meaningful than any metric.",
+    "display_ko": "마음이 가는 일을 찾고, 그 일을 잘할 방법을 익혀 보세요.",
+    "attribution": "Kevin Systrom",
+    "source_name": "BrainyQuote",
+    "sourceUrl": "https://www.brainyquote.com/lists/authors/top-10-kevin-systrom-quotes",
+    "image": "cards/passion-en.svg"
+  },
+  {
+    "id": "courage-en",
+    "theme": "용기",
+    "text": "What would you do if you weren't afraid?",
+    "display_ko": "두려움이 없다면 어떤 직무에 도전하고 싶으신가요?",
+    "attribution": "Sheryl Sandberg",
+    "source_name": "Goodreads Quotes",
+    "sourceUrl": "https://www.goodreads.com/quotes/tag/career",
+    "image": "cards/courage-en.svg"
+  },
+  {
+    "id": "attitude-en",
+    "theme": "전환",
+    "text": "Take charge of your attitude. Don't let someone else choose it for you.",
+    "display_ko": "남의 기준보다 내 선택의 방향을 먼저 살펴보세요.",
+    "attribution": "Dale Carnegie (Goalcast 표기)",
+    "source_name": "Goalcast",
+    "sourceUrl": "https://www.goalcast.com/attitude-quotes/",
+    "image": "cards/attitude-en.svg"
+  }
+]
