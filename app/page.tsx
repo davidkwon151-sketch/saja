@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import SajuForm from "./saju-form";
 import { messages, type Language } from "./i18n";
+import QuokkaGuide from "./quokka-guide";
 
 export default function Page() {
   const [language, setLanguage] = useState<Language>("ko");
@@ -33,13 +34,7 @@ export default function Page() {
             <h1>{t.heroTitle}</h1>
             <p className="intro">{t.heroIntro}</p>
           </div>
-          <div className="hero-aside" aria-hidden="true">
-            <span>{t.concern}</span>
-            <i />
-            <span>{t.direction}</span>
-            <i />
-            <strong>{t.action}</strong>
-          </div>
+          <QuokkaGuide language={language} />
         </div>
       </header>
       <SajuForm language={language} />

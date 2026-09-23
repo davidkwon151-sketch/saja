@@ -4,7 +4,8 @@ export const messages = {
   ko: {
     brand: "CAREER COMPASS", heroEyebrow: "고민에서 시작하는 커리어의 다음 방향", heroTitle: "커리어 나침반",
     heroIntro: "막막한 생각을 실행할 수 있는 계획으로. 지금의 고민과 목표일을 바탕으로 나만의 다음 단계를 찾아보세요.",
-    concern: "고민", direction: "방향", action: "실행",
+    quokkaGreet: "쿼카에게 인사하기", quokkaWaiting: "쿼카를 눌러 인사해 보세요.",
+    quokkaHappy: "방긋! 다음 걸음을 함께 찾아볼게요.", quokkaBubble: "반가워요 ♡",
     footer: "이 내용은 자기 성찰과 계획 수립을 돕는 제안입니다. 중요한 진로 결정과 지원 정보는 직접 확인해 주세요.",
     account: "계정", accountOn: "내 커리어 기록", accountOff: "내 인사이트 저장하기",
     accountHelp: "Google로 로그인하면 새로 만든 커리어 인사이트를 저장합니다. 로그인 없이도 이용할 수 있습니다.",
@@ -39,7 +40,8 @@ export const messages = {
   en: {
     brand: "CAREER COMPASS", heroEyebrow: "A new direction starts with your question", heroTitle: "Career Compass",
     heroIntro: "Turn uncertainty into a plan you can act on. Share what is on your mind and your target date to find your next steps.",
-    concern: "Your question", direction: "Direction", action: "Action",
+    quokkaGreet: "Say hello to the quokka", quokkaWaiting: "Tap the quokka to say hello.",
+    quokkaHappy: "Hi! Let's find your next step together.", quokkaBubble: "Hello ♡",
     footer: "These suggestions support reflection and planning. Check important career decisions and application details yourself.",
     account: "Account", accountOn: "Your career record", accountOff: "Save your insights",
     accountHelp: "Sign in with Google to save new career insights. You can also continue without signing in.",

@@ -44,16 +44,7 @@ a { color: var(--blue); }
 .eyebrow { display: block; color: var(--blue); font-size: 13px; font-weight: 850; letter-spacing: .08em; }
 h1 { margin: 12px 0 18px; font-size: clamp(42px, 6vw, 72px); font-weight: 850; }
 .intro { max-width: 660px; margin-bottom: 0; color: var(--muted); font-size: clamp(17px, 2vw, 21px); }
-.hero-aside {
-  position: relative;
-  min-height: 360px;
-  border: 1px solid #d9e5dc;
-  border-radius: 42% 58% 53% 47% / 42% 39% 61% 58%;
-  background: radial-gradient(circle at 50% 75%, #f8d8b1 0, #f5ebcf 42%, #dfede2 100%);
-  overflow: visible;
-}
-.hero-aside::after { content: ""; position: absolute; inset: -14px 3% -20px; background: url('/quokka-guide-v01.png') center bottom / contain no-repeat; }
-.hero-aside > * { display: none; }
+.quokka-scene { position: relative; width: min(100%, 420px); justify-self: center; }
 
 .input-card, .account-card, .reading-card, .interpretation-card, .plan-step, .saved-list li {
   border: 1px solid var(--border);
@@ -110,6 +101,27 @@ button {
 }
 button:hover:not(:disabled) { background: #15545a; transform: translateY(-1px); }
 button:disabled { opacity: .65; cursor: wait; }
+.quokka-character {
+  position: relative; z-index: 1; display: block; width: 100%; aspect-ratio: 486 / 443;
+  min-height: 0; padding: 0; overflow: hidden; border: 6px solid #fff;
+  border-radius: 30px; background: #fffdf7; box-shadow: 0 18px 46px rgba(95, 67, 42, .16);
+  transform-origin: 50% 85%; animation: quokka-float 3.5s ease-in-out infinite;
+  touch-action: manipulation;
+}
+.quokka-character:hover:not(:disabled) { background: #fffdf7; }
+.quokka-character img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; user-select: none; transition: opacity .28s ease, transform .35s ease; }
+.quokka-laugh { opacity: 0; }
+.quokka-character.is-happy .quokka-original { opacity: 0; }
+.quokka-character.is-happy .quokka-laugh { opacity: 1; }
+.quokka-character.is-happy { animation: quokka-wiggle .55s ease-in-out 1, quokka-float 3.5s ease-in-out .55s infinite; }
+.quokka-character.is-happy img { transform: scale(1.035); }
+.quokka-bubble { position: absolute; z-index: 2; top: -16px; right: -6px; padding: 8px 12px; border: 2px solid #e49e73; border-radius: 18px 18px 18px 4px; background: #fff; color: #914a33; font-size: 15px; font-weight: 800; box-shadow: 0 8px 20px rgba(95, 67, 42, .14); opacity: 0; transform: translateY(12px) rotate(5deg) scale(.8); transition: opacity .2s ease, transform .35s ease; pointer-events: none; }
+.quokka-bubble.is-visible { opacity: 1; transform: translateY(0) rotate(5deg) scale(1); }
+.quokka-caption { position: relative; z-index: 1; min-height: 24px; margin: 18px 0 0; color: var(--muted); text-align: center; font-size: 14px; font-weight: 700; }
+.quokka-particle { position: absolute; z-index: 3; top: 45%; left: 50%; color: var(--coral); pointer-events: none; font-size: 23px; animation: quokka-burst .9s ease-out forwards; }
+@keyframes quokka-float { 0%, 100% { transform: translateY(0) rotate(-1.2deg); } 50% { transform: translateY(-10px) rotate(1.2deg); } }
+@keyframes quokka-wiggle { 0%, 100% { transform: scale(1) rotate(0); } 25% { transform: scale(1.04) rotate(-5deg); } 50% { transform: scale(1.06) rotate(5deg); } 75% { transform: scale(1.03) rotate(-3deg); } }
+@keyframes quokka-burst { from { opacity: 1; transform: translate(-50%, -50%) scale(.3); } to { opacity: 0; transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) rotate(var(--turn)) scale(1.3); } }
 .feedback:not(:empty) { margin-top: 22px; }
 .feedback p { margin: 0; }
 .loading { color: var(--blue); font-weight: 700; }
@@ -178,7 +190,8 @@ footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border
   .language-switch { flex-shrink: 0; }
   .language-option { padding-inline: 10px; }
   .hero-content { display: block; padding-top: 36px; }
-  .hero-aside { display: block; width: min(100%, 370px); min-height: 310px; margin: 24px auto 0; }
+  .quokka-scene { width: min(100%, 370px); margin: 30px auto 0; }
+  .quokka-bubble { right: 4px; }
   form, .interpretation-details { grid-template-columns: 1fr; }
   .full { grid-column: auto; }
   .form-bottom, .reading-card { display: block; }
@@ -200,4 +213,5 @@ footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+  .quokka-character, .quokka-character.is-happy, .quokka-particle { animation: none !important; }
 }
