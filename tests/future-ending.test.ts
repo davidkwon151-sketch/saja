@@ -115,7 +115,9 @@ test("미래 장면은 결과의 마지막에 놓이며 결과가 없으면 나�
   const source = readFileSync(new URL("../app/saju-form.tsx", import.meta.url), "utf8");
   const endingPosition = source.lastIndexOf("<FutureEnding");
   assert.ok(endingPosition > 0, "결과에 미래 장면이 연결되어야 합니다");
-  assert.ok(endingPosition > source.indexOf('className="saved-section"'));
+  const insightsPosition = source.indexOf("<QuokkaInsights");
+  assert.ok(insightsPosition >= 0, "저장된 가능성의 쿼카 화면이 연결되어야 합니다");
+  assert.ok(endingPosition > insightsPosition, "미래 장면은 쿼카 인사이트 다음에 표시되어야 합니다");
   assert.ok(endingPosition > source.indexOf('className="plan-list"'));
   assert.match(source.slice(endingPosition - 120, endingPosition + 160), /result/);
 });

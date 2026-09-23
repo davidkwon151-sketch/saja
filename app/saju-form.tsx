@@ -8,6 +8,7 @@ import { displayReadingText, type SajuReading } from "../lib/career/guidance";
 import { supabase } from "../lib/supabase/client";
 import { messages, type Language } from "./i18n";
 import FutureEnding from "./future-ending";
+import QuokkaInsights from "./quokka-insights";
 
 type Result = {
   chart: {
@@ -322,29 +323,7 @@ export default function SajuForm({ language }: { language: Language }) {
         </section>
       )}
 
-      {user && (
-        <section className="saved-section" aria-labelledby="saved-title">
-          <div className="section-heading">
-            <span className="eyebrow">{t.myReadings}</span>
-            <h2 id="saved-title">{t.savedTitle}</h2>
-            <p>{t.savedIntro}</p>
-            <p>{t.savedLanguage}</p>
-          </div>
-          {historyError ? <p className="error" role="alert">{historyError}</p> :
-            savedReadings.length ? (
-              <ul className="saved-list">
-                {savedReadings.map((reading) => (
-                  <li key={reading.id}>
-                    <details>
-                      <summary>{new Date(reading.created_at).toLocaleString(language === "ko" ? "ko-KR" : "en-US", { timeZone: "Asia/Seoul" })} · {displayReadingText(reading.summary).slice(0, 65)}{displayReadingText(reading.summary).length > 65 ? "…" : ""}</summary>
-                      <div className="saved-content"><ReadingContent reading={reading} language={language} /></div>
-                    </details>
-                  </li>
-                ))}
-              </ul>
-            ) : <p className="empty-state">{t.emptyHistory}</p>}
-        </section>
-      )}
+      {user && <QuokkaInsights readings={savedReadings} language={language} error={historyError} />}
       {result && <FutureEnding quote={result.quote} motivation={result.motivation} language={language} />}
     </>
   );
