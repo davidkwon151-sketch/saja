@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import type { User } from "@supabase/supabase-js";
 import type { PlanStep } from "../lib/career/plan";
+import { todayInKorea } from "../lib/career/plan";
 import { displayReadingText, type SajuReading } from "../lib/career/guidance";
 import { supabase } from "../lib/supabase/client";
 import { messages, type Language } from "./i18n";
@@ -20,6 +21,7 @@ type Result = {
   age: number;
   nearbyAges: number[];
   quote: { text: string; attribution?: string; sourceUrl?: string };
+  motivation: { text: string; attribution?: string; sourceUrl?: string };
 };
 
 type SavedReading = SajuReading & { id: string; created_at: string };
@@ -47,6 +49,25 @@ function ReadingContent({ reading, language }: { reading: SajuReading; language:
 
 export default function SajuForm({ language }: { language: Language }) {
   const t = messages[language];
+  const [birthYear, setBirthYear] = useState("");
+  const [birthMonth, setBirthMonth] = useState("");
+  const [targetDate, setTargetDate] = useState("");
+  const [targetPreset, setTargetPreset] = useState(0);
+  const today = todayInKorea();
+  const tomorrow = new Date(Date.parse(`${today}T00:00:00Z`) + 86400000).toISOString().slice(0, 10);
+  const currentYear = Number(today.slice(0, 4));
+  const daysInBirthMonth = birthMonth
+    ? new Date(Number(birthYear || "2000"), Number(birthMonth), 0).getDate()
+    : 31;
+
+  function chooseTarget(months: number) {
+    const [year, month, day] = today.split("-").map(Number);
+    const first = new Date(Date.UTC(year, month - 1 + months, 1));
+    const lastDay = new Date(Date.UTC(first.getUTCFullYear(), first.getUTCMonth() + 1, 0)).getUTCDate();
+    first.setUTCDate(Math.min(day, lastDay));
+    setTargetDate(first.toISOString().slice(0, 10));
+    setTargetPreset(months);
+  }
   const [result, setResult] = useState<Result | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -118,7 +139,11 @@ export default function SajuForm({ language }: { language: Language }) {
     setResult(null);
     setSaveMessage("");
     const data = new FormData(event.currentTarget);
-    const input = { ...Object.fromEntries(data.entries()), language };
+    const input = {
+      ...Object.fromEntries(data.entries()),
+      birthDate: `${String(data.get("birthYear")).padStart(4, "0")}-${data.get("birthMonth")}-${data.get("birthDay")}`,
+      language,
+    };
     try {
       const response = await fetch("/api/plan", {
         method: "POST",
@@ -190,13 +215,41 @@ export default function SajuForm({ language }: { language: Language }) {
             <small>{t.privacyHint}</small>
           </div>
           <div className="field">
-            <label htmlFor="birthDate">{t.birthDate}</label>
-            <input id="birthDate" name="birthDate" type="date" required />
+            <fieldset className="birth-date-field">
+              <legend>{t.birthDate}</legend>
+              <div className="birth-date-parts">
+                <div>
+                  <label htmlFor="birthYear">{t.birthYear}</label>
+                  <input id="birthYear" name="birthYear" type="number" inputMode="numeric" min="1900" max={currentYear} placeholder={String(currentYear - 25)} value={birthYear} onChange={(event) => setBirthYear(event.target.value)} required />
+                </div>
+                <div>
+                  <label htmlFor="birthMonth">{t.birthMonth}</label>
+                  <select id="birthMonth" name="birthMonth" value={birthMonth} onChange={(event) => setBirthMonth(event.target.value)} required>
+                    <option value="">{t.chooseDate}</option>
+                    {Array.from({ length: 12 }, (_, index) => <option key={index + 1} value={String(index + 1).padStart(2, "0")}>{index + 1}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="birthDay">{t.birthDay}</label>
+                  <select key={`${birthYear}-${birthMonth}`} id="birthDay" name="birthDay" defaultValue="" required>
+                    <option value="">{t.chooseDate}</option>
+                    {Array.from({ length: daysInBirthMonth }, (_, index) => <option key={index + 1} value={String(index + 1).padStart(2, "0")}>{index + 1}</option>)}
+                  </select>
+                </div>
+              </div>
+            </fieldset>
             <small>{t.birthHint}</small>
           </div>
           <div className="field">
             <label htmlFor="targetDate">{t.targetDate}</label>
-            <input id="targetDate" name="targetDate" type="date" required />
+            <div className="target-presets" role="group" aria-label={t.targetQuickSelect}>
+              {[3, 6, 12].map((months) => (
+                <button key={months} type="button" className="target-preset" aria-pressed={targetPreset === months} onClick={() => chooseTarget(months)} aria-label={language === "ko" ? `오늘부터 ${months}개월 뒤 입사 목표일 선택` : `Set target start date ${months} months from today`}>
+                  {months === 12 ? t.targetYear : language === "ko" ? `${months}개월 뒤` : `In ${months} months`}
+                </button>
+              ))}
+            </div>
+            <input id="targetDate" name="targetDate" type="date" min={tomorrow} value={targetDate} onChange={(event) => { setTargetDate(event.target.value); setTargetPreset(0); }} required />
             <small>{t.targetHint}</small>
           </div>
           <div className="field">
@@ -292,7 +345,7 @@ export default function SajuForm({ language }: { language: Language }) {
             ) : <p className="empty-state">{t.emptyHistory}</p>}
         </section>
       )}
-      {result && <FutureEnding age={result.age} nearbyAges={result.nearbyAges} quote={result.quote} language={language} />}
+      {result && <FutureEnding quote={result.quote} motivation={result.motivation} language={language} />}
     </>
   );
 }

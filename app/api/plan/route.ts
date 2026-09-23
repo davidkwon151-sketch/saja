@@ -7,7 +7,7 @@ import {
 } from "../../../lib/career/plan";
 import { parseGeneratedGuidance, type GeneratedGuidance } from "../../../lib/career/guidance";
 import { ageAt, nearbyAges } from "../../../lib/career/closing";
-import { selectCareerQuote } from "../../../lib/career/quotes";
+import { selectCareerMotivation, selectCareerQuote } from "../../../lib/career/quotes";
 
 export const runtime = "nodejs";
 
@@ -70,6 +70,7 @@ export async function POST(request: Request) {
       age,
       nearbyAges: nearbyAges(age),
       quote: selectCareerQuote({ age, concern: input.concern, role: input.role, status: input.status, language }),
+      motivation: selectCareerMotivation({ age, concern: input.concern, role: input.role, status: input.status, language }),
       reading: guidance?.reading || null,
       steps: guidance?.steps || fallback,
       planSource: guidance ? "ai" : "basic",

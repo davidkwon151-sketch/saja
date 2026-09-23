@@ -9,7 +9,7 @@ import { POST } from "../app/api/plan/route";
 test("비회원에게도 고민 입력과 해석 요청 화면이 보인다", () => {
   const html = renderToStaticMarkup(createElement(SajuForm, { language: "ko" }));
   assert.match(html, /로그인 없이도 이용할 수 있습니다/);
-  for (const field of ["concern", "birthDate", "targetDate", "role", "status"]) {
+  for (const field of ["concern", "birthYear", "birthMonth", "birthDay", "targetDate", "role", "status"]) {
     assert.match(html, new RegExp(`name="${field}"`));
   }
   assert.match(html, /나의 커리어 경로 보기/);

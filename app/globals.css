@@ -66,6 +66,17 @@ h1 { margin: 12px 0 18px; font-size: clamp(42px, 6vw, 72px); font-weight: 850; }
 .section-heading p, .result-intro p { color: var(--muted); }
 form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
 .field { display: flex; min-width: 0; flex-direction: column; }
+.birth-date-field { min-width: 0; margin: 0; padding: 0; border: 0; }
+.birth-date-field legend { margin-bottom: 8px; padding: 0; font-weight: 750; }
+.birth-date-parts { display: grid; grid-template-columns: minmax(0, 1.25fr) repeat(2, minmax(0, 1fr)); gap: 8px; }
+.birth-date-parts > div { min-width: 0; }
+.birth-date-parts label { display: block; margin-bottom: 4px; font-size: 13px; }
+.birth-date-parts input, .birth-date-parts select { min-width: 0; padding-inline: 10px; }
+.target-presets { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.target-preset { min-height: 44px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 999px; background: var(--mint); color: var(--ink); font-size: 14px; }
+.target-preset:hover:not(:disabled) { background: #d6e8d5; color: var(--ink); }
+.target-preset[aria-pressed="true"] { border-color: var(--blue); background: var(--blue); color: #fff; }
+.target-preset[aria-pressed="true"]:hover:not(:disabled) { background: #15545a; color: #fff; }
 .full { grid-column: 1 / -1; }
 label { margin-bottom: 8px; font-weight: 750; }
 input, textarea, select {
@@ -169,18 +180,16 @@ button:disabled { opacity: .65; cursor: wait; }
 footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
 
 .future-section { margin-top: 76px; }
-.future-section h2 { margin: 10px 0 12px; font-size: clamp(30px, 4vw, 46px); }
-.future-intro { max-width: 680px; color: var(--muted); font-size: 17px; }
-.future-visual { position: relative; display: flex; min-height: 520px; flex-direction: column; justify-content: space-between; margin: 26px 0 0; padding: clamp(22px, 4vw, 42px); overflow: hidden; border-radius: 30px; background: linear-gradient(90deg, rgba(12, 35, 46, .92), rgba(12, 35, 46, .35) 70%), url('/career-future-v01.png') center / cover; color: #fff; box-shadow: 0 22px 48px rgba(31, 53, 52, .18); }
-.future-copy { position: relative; z-index: 1; max-width: 670px; padding: 24px 28px; border: 1px solid rgba(255,255,255,.24); border-radius: 20px; background: rgba(17, 43, 52, .75); backdrop-filter: blur(8px); }
+.future-section h2 { margin: 0 0 26px; font-size: clamp(30px, 4vw, 46px); line-height: 1.2; }
+.future-visual { position: relative; display: flex; min-height: 520px; align-items: flex-end; margin: 26px 0 0; padding: clamp(22px, 4vw, 42px); overflow: hidden; border-radius: 30px; background: linear-gradient(90deg, rgba(12, 35, 46, .92), rgba(12, 35, 46, .26) 85%), url('/career-future-v01.png') center / cover; color: #fff; box-shadow: 0 22px 48px rgba(31, 53, 52, .18); }
+.future-copy { position: relative; z-index: 1; width: min(100%, 760px); padding: 24px 28px; border: 1px solid rgba(255,255,255,.24); border-radius: 20px; background: rgba(17, 43, 52, .78); backdrop-filter: blur(8px); }
+.future-sayings { display: grid; gap: 22px; }
+.future-sayings > div + div { border-top: 1px solid rgba(255,255,255,.25); padding-top: 22px; }
 .future-kicker { display: block; margin-bottom: 15px; color: #ffd6a3; font-size: 13px; font-weight: 800; letter-spacing: .08em; }
-.future-copy blockquote { margin: 0; font-size: clamp(21px, 3vw, 31px); font-weight: 750; line-height: 1.4; word-break: keep-all; }
+.future-copy blockquote { margin: 0; font-size: clamp(20px, 2.5vw, 28px); font-weight: 750; line-height: 1.4; word-break: keep-all; }
 .future-connection { margin: 14px 0 0; color: #fff7e8; font-size: 16px; }
 .future-attribution { margin: 16px 0 0; color: #e9f3ee; font-size: 14px; }
 .future-attribution a { color: #fff1ca; }
-.future-ages { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
-.future-age { display: flex; min-height: 80px; flex-direction: column; justify-content: center; gap: 2px; padding: 12px 15px; border: 1px solid rgba(255,255,255,.32); border-radius: 16px; background: rgba(17, 43, 52, .82); backdrop-filter: blur(8px); }
-.future-age strong { color: #fff; font-size: 22px; line-height: 1.15; }
 
 @media (max-width: 720px) {
   main { padding: 0 16px 42px; }
@@ -203,12 +212,9 @@ footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border
   .plan-step { grid-template-columns: 1fr; gap: 7px; padding: 23px; }
   .step-number { font-size: 27px; }
   .future-section { margin-top: 58px; }
-  .future-visual { min-height: 560px; padding: 16px; border-radius: 24px; background: linear-gradient(180deg, rgba(12, 35, 46, .9), rgba(12, 35, 46, .12) 45%, rgba(12, 35, 46, .82)), url('/career-future-v01.png') 54% center / cover; }
+  .future-visual { min-height: 620px; padding: 16px; border-radius: 24px; background: linear-gradient(180deg, rgba(12, 35, 46, .12), rgba(12, 35, 46, .35) 45%, rgba(12, 35, 46, .88)), url('/career-future-v01.png') 54% center / cover; }
   .future-copy { padding: 17px 18px; }
   .future-copy blockquote { font-size: 21px; }
-  .future-ages { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .future-age { min-height: 67px; padding: 9px 12px; }
-  .future-age strong { font-size: 18px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

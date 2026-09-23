@@ -16,3 +16,5 @@ Spec을 만들면 아래 목록에 파일명을 추가합니다. 구현과 검�
 - [x] `008-quokka-guide-design.md`
 - [x] `009-sourced-career-quotes.md`
 - [x] `010-responsive-quokka-animation.md`
+- [x] `011-future-motivation-quotes.md`
+- [x] `012-date-input-ux.md`

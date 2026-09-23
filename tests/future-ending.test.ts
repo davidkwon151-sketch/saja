@@ -3,8 +3,8 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { ageAt, nearbyAges } from "../lib/career/closing";
-import { selectCareerQuote } from "../lib/career/quotes";
+import { ageAt } from "../lib/career/closing";
+import { selectCareerMotivation, selectCareerQuote } from "../lib/career/quotes";
 import FutureEnding from "../app/future-ending";
 import { POST } from "../app/api/plan/route";
 
@@ -20,15 +20,6 @@ test("한국 날짜 기준 생일 전후의 만 나이를 정확히 구한다", 
   assert.equal(ageAt("1992-10-04", "2026-10-03"), 33);
   assert.equal(ageAt("1992-10-04", "2026-10-04"), 34);
   assert.equal(ageAt("1980-01-01", "2026-09-23"), 46);
-});
-
-test("20대와 40대 모두 이미지 위 네 나이가 본인 나이 ±7 안에 있다", () => {
-  for (const age of [22, 29, 40, 47]) {
-    const ages = nearbyAges(age);
-    assert.equal(ages.length, 4);
-    assert.ok(ages.every((peerAge) => Math.abs(peerAge - age) <= 7));
-    assert.deepEqual([...ages].sort((a, b) => a - b), ages);
-  }
 });
 
 test("격언은 고민과 언어에 따라 달라지고 알려진 속담은 출처가 있다", () => {
@@ -55,27 +46,69 @@ test("격언은 고민과 언어에 따라 달라지고 알려진 속담은 출�
   }
 });
 
-test("미래 장면에 정확한 격언 제목과 나이 네 개가 함께 표시된다", () => {
+test("취업 고민별 명언과 격언은 서로 다르고 여러 검증 가능한 출처를 가진다", () => {
+  const concerns = ["계속 불합격합니다", "혼자 준비하니 힘듭니다", "포트폴리오가 부족합니다", "이직을 고민합니다", "첫 취업을 준비합니다"];
+  const results = concerns.map((concern) => {
+    const input = { age: 26, concern, role: "분석가", status: "취업 준비 중", language: "ko" as const };
+    return { motivation: selectCareerMotivation(input), proverb: selectCareerQuote(input) };
+  });
+  assert.ok(new Set(results.map(({ motivation }) => motivation.text)).size >= 3);
+  assert.ok(new Set(results.map(({ proverb }) => proverb.text)).size >= 3);
+  const sourceHosts = new Set<string>();
+  for (const { motivation, proverb } of results) {
+    assert.notEqual(motivation.text, proverb.text);
+    for (const saying of [motivation, proverb]) {
+      assert.ok(saying.text.length > 0);
+      assert.ok(saying.attribution);
+      assert.ok(saying.sourceUrl);
+      assert.match(saying.sourceUrl!, /^https:\/\//);
+      sourceHosts.add(new URL(saying.sourceUrl!).hostname);
+    }
+  }
+  assert.ok(sourceHosts.size >= 3, "명언과 격언은 세 곳 이상의 서로 다른 사이트를 사용해야 합니다");
+});
+
+test("마지막 이미지에 정확한 메시지와 명언·격언을 표시하고 네 나이표는 표시하지 않는다", () => {
   const html = renderToStaticMarkup(createElement(FutureEnding, {
-    age: 34,
-    nearbyAges: [27, 32, 36, 41],
     quote: {
       text: "Well begun is half done.",
       connection: "데이터 분석가를 향해 오늘 작은 프로젝트를 시작해 보세요.",
       attribution: "English proverb",
-      sourceUrl: "https://example.org/source",
+      sourceUrl: "https://example.org/proverb",
+    },
+    motivation: {
+      text: "Stay hungry. Stay foolish.",
+      attribution: "Steve Jobs",
+      sourceUrl: "https://example.org/quote",
     },
     language: "ko",
   }));
+  assert.match(html, /내일의 나는 오늘의 내가 만듭니다/);
+  assert.match(html, /내 고민과 연결한 명언/);
   assert.match(html, /내 고민과 연결한 격언/);
+  assert.match(html, /Stay hungry\. Stay foolish\./);
   assert.match(html, /Well begun is half done/);
   assert.match(html, /데이터 분석가를 향해 오늘 작은 프로젝트를 시작해 보세요/);
   assert.match(html, /class="future-connection"/);
-  for (const age of [27, 32, 36, 41]) assert.match(html, new RegExp(`${age}세`));
+  assert.doesNotMatch(html, /future-ages|future-age|\d+세|\d+ years old/);
   for (const label of ["새로운 출발", "나의 강점 발견", "한 걸음 전진", "다음 도전"])
     assert.doesNotMatch(html, new RegExp(label));
-  assert.match(html, /href="https:\/\/example.org\/source"/);
+  assert.match(html, /href="https:\/\/example.org\/proverb"/);
+  assert.match(html, /href="https:\/\/example.org\/quote"/);
   assert.match(html, /rel="noopener noreferrer"/);
+});
+
+test("영문 화면은 영문 메시지와 명언·격언 레이블을 표시한다", () => {
+  const html = renderToStaticMarkup(createElement(FutureEnding, {
+    quote: { text: "Practice makes perfect.", attribution: "English proverb", sourceUrl: "https://example.org/proverb" },
+    motivation: { text: "Well done is better than well said.", attribution: "Benjamin Franklin", sourceUrl: "https://example.org/quote" },
+    language: "en",
+  }));
+  assert.match(html, /I create tomorrow through what I do today/);
+  assert.match(html, /A QUOTE FOR YOUR NEXT STEP/);
+  assert.match(html, /A PROVERB FOR YOUR CONCERN/);
+  assert.doesNotMatch(html, /[가-힣\p{Script=Han}]/u);
+  assert.doesNotMatch(html, /future-ages|future-age/);
 });
 
 test("미래 장면은 결과의 마지막에 놓이며 결과가 없으면 나타나지 않는다", () => {
@@ -87,7 +120,7 @@ test("미래 장면은 결과의 마지막에 놓이며 결과가 없으면 나�
   assert.match(source.slice(endingPosition - 120, endingPosition + 160), /result/);
 });
 
-test("AI를 사용할 수 없어도 나이·고민별 격언과 3단계 계획을 반환한다", async () => {
+test("AI를 사용할 수 없어도 고민별 명언·격언과 3단계 계획을 반환한다", async () => {
   const previousKey = process.env.GEMINI_API_KEY;
   const previousFetch = globalThis.fetch;
   let called = false;
@@ -105,7 +138,9 @@ test("AI를 사용할 수 없어도 나이·고민별 격언과 3단계 계획�
     assert.equal(body.planSource, "basic");
     assert.equal(body.steps.length, 3);
     assert.equal(body.age, ageAt(futureInput.birthDate));
-    assert.deepEqual(body.nearbyAges, nearbyAges(body.age));
+    assert.ok(body.motivation?.text);
+    assert.ok(body.motivation?.sourceUrl);
+    assert.match(body.motivation.sourceUrl, /^https:\/\//);
     assert.ok(body.quote?.text);
     assert.match(body.quote.connection, /데이터 분석가/);
     assert.match(body.quote.text, /[A-Za-z]/);
@@ -119,7 +154,7 @@ test("AI를 사용할 수 없어도 나이·고민별 격언과 3단계 계획�
   }
 });
 
-test("영어 선택 시 API가 영어 기본 계획과 격언을 반환한다", async () => {
+test("영어 선택 시 API가 영어 기본 계획과 명언·격언을 반환한다", async () => {
   const previousKey = process.env.GEMINI_API_KEY;
   process.env.GEMINI_API_KEY = "";
   try {
@@ -133,6 +168,9 @@ test("영어 선택 시 API가 영어 기본 계획과 격언을 반환한다", 
     assert.equal(body.steps.length, 3);
     assert.match(body.steps[0].title, /^[A-Za-z]/);
     assert.ok(body.quote?.text);
+    assert.ok(body.motivation?.text);
+    assert.match(body.motivation.sourceUrl, /^https:\/\//);
+    assert.doesNotMatch(body.motivation.text, /[가-힣\p{Script=Han}]/u);
     assert.match(body.quote.connection, /Data analyst/);
     assert.doesNotMatch(body.quote.text, /[가-힣\p{Script=Han}]/u);
   } finally {
