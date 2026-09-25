@@ -161,10 +161,30 @@ test("형식이 깨진 응답은 한 번 재시도한 뒤 기본 계획으로 �
   assert.ok(body.resources.length >= 4);
 });
 
-test("서버 오류가 나면 재시도 없이 기본 계획으로 표시한다", async () => {
+test("일시적인 서버 오류는 짧게 한 번만 다시 시도하고, 계속 실패하면 기본 계획으로 표시한다", async () => {
   const { body, calls } = await withGemini(() => new Response("oops", { status: 503 }));
+  assert.equal(calls.length, 2);
+  assert.ok(calls[1].body.generationConfig.responseSchema, "일시 오류에서는 스키마를 버리지 않는다");
+  assert.equal(body.planSource, "basic");
+});
+
+test("사용량 한도(429) 뒤 재시도가 성공하면 AI 결과를 쓴다", async () => {
+  let count = 0;
+  const { body, calls } = await withGemini(() =>
+    count++ === 0
+      ? Response.json({ error: { details: [{ retryDelay: "1s" }] } }, { status: 429 })
+      : gemini(full));
+  assert.equal(calls.length, 2);
+  assert.equal(body.planSource, "ai");
+});
+
+test("한도 초과 대기 시간이 길면 기다리지 않고 기본 계획으로 표시한다", async () => {
+  const started = Date.now();
+  const { body, calls } = await withGemini(() =>
+    Response.json({ error: { details: [{ retryDelay: "40s" }] } }, { status: 429 }));
   assert.equal(calls.length, 1);
   assert.equal(body.planSource, "basic");
+  assert.ok(Date.now() - started < 5000);
 });
 
 test("최근 명언 id 목록이 이상해도 요청은 정상 처리된다", async () => {

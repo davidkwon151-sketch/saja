@@ -138,7 +138,25 @@ ${candidates}
 사용자 데이터:\n${JSON.stringify({ age, concern: input.concern, role: input.role, status: input.status, targetDate: input.targetDate, ...birthPattern })}`;
 }
 
-type Attempt = { kind: "ok"; raw: string } | { kind: "http"; status: number } | { kind: "error" };
+type Attempt =
+  | { kind: "ok"; raw: string; finishReason?: string }
+  | { kind: "http"; status: number; retryAfterMs?: number }
+  | { kind: "error"; reason: string };
+
+const TRANSIENT_WAIT_MAX_MS = 2500;
+
+// Retry-After 헤더나 Gemini 오류 본문의 retryDelay("23s")에서 재시도 대기 시간을 읽는다.
+async function readRetryAfterMs(response: Response): Promise<number | undefined> {
+  const header = Number(response.headers.get("retry-after"));
+  if (Number.isFinite(header) && header > 0) return header * 1000;
+  try {
+    const text = await response.text();
+    const match = text.match(/"retryDelay"\s*:\s*"(\d+(?:\.\d+)?)s"/);
+    return match ? Number(match[1]) * 1000 : undefined;
+  } catch {
+    return undefined;
+  }
+}
 
 async function callGemini(key: string, prompt: string, schema: object | null, timeoutMs: number): Promise<Attempt> {
   try {
@@ -154,19 +172,20 @@ async function callGemini(key: string, prompt: string, schema: object | null, ti
       }),
       signal: AbortSignal.timeout(timeoutMs),
     });
-    if (!response.ok) return { kind: "http", status: response.status };
+    if (!response.ok) return { kind: "http", status: response.status, retryAfterMs: await readRetryAfterMs(response) };
     const data = (await response.json()) as {
-      candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }>;
+      candidates?: Array<{ content?: { parts?: Array<{ text?: string }> }; finishReason?: string }>;
     };
     const raw = data.candidates?.[0]?.content?.parts?.map((part) => part.text || "").join("");
-    return { kind: "ok", raw: raw || "" };
-  } catch {
-    return { kind: "error" };
+    return { kind: "ok", raw: raw || "", finishReason: data.candidates?.[0]?.finishReason };
+  } catch (error) {
+    return { kind: "error", reason: error instanceof Error ? error.name : "unknown" };
   }
 }
 
 /**
- * 스키마 포함 요청 → (HTTP 오류면) 스키마 없이 1회 → (형식 오류면) 시간이 남을 때 1회 더.
+ * 스키마 포함 요청 → (400이면) 스키마 없이 1회 → (429·5xx면) 짧게 기다린 뒤 1회 → (형식 오류면) 시간이 남을 때 1회 더.
+ * 실패 원인은 사용자 입력 없이 상태 코드만 서버 로그에 남긴다.
  * 모든 시도가 실패하면 null을 반환하고, 호출한 쪽은 기본 계획을 "basic"으로 표시한다.
  */
 async function generateGuidance(
@@ -186,22 +205,35 @@ async function generateGuidance(
 
   let useSchema = true;
   let schemaRetried = false;
+  let transientRetried = false;
   let parseRetried = false;
-  for (let attempt = 0; attempt < 3; attempt++) {
+  for (let attempt = 0; attempt < 4; attempt++) {
     const remaining = TOTAL_BUDGET_MS - (Date.now() - started);
     if (attempt > 0 && remaining < MIN_RETRY_MS) break;
     const result = await callGemini(key, prompt, useSchema ? schema : null, Math.min(ATTEMPT_TIMEOUT_MS, remaining));
     if (result.kind === "http") {
-      if (useSchema && !schemaRetried && result.status >= 400 && result.status < 500) {
+      console.warn(`[plan] Gemini attempt ${attempt + 1} failed: HTTP ${result.status}${result.retryAfterMs ? `, retry after ${result.retryAfterMs}ms` : ""}`);
+      if (result.status === 400 && useSchema && !schemaRetried) {
         useSchema = false;
         schemaRetried = true;
         continue;
       }
+      const transient = result.status === 429 || result.status >= 500;
+      const wait = result.retryAfterMs ?? 1000;
+      if (transient && !transientRetried && wait <= TRANSIENT_WAIT_MAX_MS) {
+        transientRetried = true;
+        await new Promise((resolve) => setTimeout(resolve, wait));
+        continue;
+      }
       break;
     }
-    if (result.kind === "error") break;
+    if (result.kind === "error") {
+      console.warn(`[plan] Gemini attempt ${attempt + 1} failed: ${result.reason}`);
+      break;
+    }
     const parsed = result.raw ? parseGeneratedGuidance(result.raw, fallback, resourceIds) : null;
     if (parsed) return parsed;
+    console.warn(`[plan] Gemini attempt ${attempt + 1} returned unusable output (finishReason: ${result.finishReason ?? "none"}, length: ${result.raw.length})`);
     if (parseRetried) break;
     parseRetried = true;
   }
