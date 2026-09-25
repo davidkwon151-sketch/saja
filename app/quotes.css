@@ -1,0 +1,56 @@
+/* 결과 마지막 장면의 명언·격언 세부 스타일.
+ * 어두운 사진 위 카드(.future-copy)에 놓이므로 밝은 변수(--mint, --paper 등)를 글자색으로 쓴다.
+ * 기본 배치(.future-sayings, .future-kicker, blockquote 크기)는 globals.css에 있다. */
+
+.future-saying { min-width: 0; }
+
+.future-copy blockquote[lang="en"] {
+  quotes: "\201C" "\201D";
+  hyphens: manual;
+}
+.future-copy blockquote[lang="en"]::before { content: open-quote; margin-right: .08em; color: var(--amber); }
+.future-copy blockquote[lang="en"]::after { content: close-quote; margin-left: .04em; color: var(--amber); }
+
+.future-translation {
+  margin: 10px 0 0;
+  color: var(--mint);
+  font-size: clamp(16px, 1.7vw, 18px);
+  font-weight: 600;
+  line-height: 1.6;
+  word-break: keep-all;
+  opacity: .92;
+}
+
+.future-connection {
+  display: grid;
+  gap: 4px;
+  margin: 16px 0 0;
+  padding: 10px 14px;
+  border-left: 3px solid var(--coral);
+  border-radius: 0 10px 10px 0;
+  background: rgba(255, 255, 255, .08);
+  color: var(--paper);
+  font-size: 16px;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+.future-connection-label {
+  color: #ffd6a3;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.future-attribution { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
+.future-source-label {
+  color: var(--mint);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  opacity: .8;
+}
+
+@media (max-width: 640px) {
+  .future-translation { font-size: 16px; }
+  .future-connection { font-size: 15px; padding: 9px 12px; }
+}

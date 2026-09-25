@@ -2,13 +2,27 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import type { User } from "@supabase/supabase-js";
-import type { PlanStep } from "../lib/career/plan";
+import type { Interview, PlanStep, Risk } from "../lib/career/plan";
 import { todayInKorea } from "../lib/career/plan";
-import { displayReadingText, type SajuReading } from "../lib/career/guidance";
+import { displayReadingText, type Diagnosis, type SajuReading } from "../lib/career/guidance";
+import type { SearchLink, SelectedResource } from "../lib/career/resources";
+import { readRecentQuoteIds, rememberQuoteIds } from "../lib/career/recent-quotes";
 import { supabase } from "../lib/supabase/client";
 import { messages, type Language } from "./i18n";
 import FutureEnding from "./future-ending";
 import QuokkaInsights from "./quokka-insights";
+import {
+  DiagnosisCard,
+  InterviewList,
+  ResourceList,
+  ResumeLines,
+  RiskList,
+  WeekChecklist,
+  hashResult,
+} from "./compass-sections";
+import "./compass.css";
+
+type Saying = { id?: string; text: string; translation?: string; attribution?: string; sourceUrl?: string; connection?: string };
 
 type Result = {
   chart: {
@@ -21,8 +35,16 @@ type Result = {
   planSource: "ai" | "basic";
   age: number;
   nearbyAges: number[];
-  quote: { text: string; attribution?: string; sourceUrl?: string };
-  motivation: { text: string; attribution?: string; sourceUrl?: string };
+  quote: Saying;
+  motivation: Saying;
+  diagnosis?: Diagnosis | null;
+  firstWeek?: string[];
+  resumeLines?: string[];
+  interview?: Interview[];
+  risks?: Risk[];
+  basicSections?: string[];
+  resources?: SelectedResource[];
+  searchLinks?: SearchLink[];
 };
 
 type SavedReading = SajuReading & { id: string; created_at: string };
@@ -144,6 +166,7 @@ export default function SajuForm({ language }: { language: Language }) {
       ...Object.fromEntries(data.entries()),
       birthDate: `${String(data.get("birthYear")).padStart(4, "0")}-${data.get("birthMonth")}-${data.get("birthDay")}`,
       language,
+      recentQuoteIds: readRecentQuoteIds(),
     };
     try {
       const response = await fetch("/api/plan", {
@@ -155,6 +178,7 @@ export default function SajuForm({ language }: { language: Language }) {
       if (!response.ok) throw new Error(body.error || t.planError);
       const nextResult = body as Result;
       setResult(nextResult);
+      rememberQuoteIds([nextResult.quote?.id, nextResult.motivation?.id].filter((id): id is string => Boolean(id)));
       requestAnimationFrame(() => resultTitle.current?.focus());
       if (nextResult.reading && user && supabase) {
         setSaveMessage(t.saving);
@@ -268,7 +292,7 @@ export default function SajuForm({ language }: { language: Language }) {
           </div>
           <div className="form-bottom full">
             <p>{t.dataNotice}</p>
-            <button type="submit" disabled={loading}>
+            <button type="submit" disabled={loading} aria-busy={loading}>
               {loading ? t.loadingButton : t.submit}
             </button>
           </div>
@@ -298,8 +322,10 @@ export default function SajuForm({ language }: { language: Language }) {
             {saveMessage && <p className="save-message" role="status">{saveMessage}</p>}
           </section>
 
+          {result.diagnosis && <DiagnosisCard diagnosis={result.diagnosis} language={language} />}
+
           <div className="section-heading plan-heading">
-            <span className="eyebrow">ACTION PLAN</span>
+            <span className="eyebrow">{t.planKicker}</span>
             <h3>{t.planTitle}</h3>
             <p>
               {result.planSource === "ai"
@@ -315,10 +341,44 @@ export default function SajuForm({ language }: { language: Language }) {
                   <span className="period">{displayReadingText(step.period)}</span>
                   <h4>{displayReadingText(step.title)}</h4>
                   <ul>{step.actions.map((action, actionIndex) => <li key={actionIndex}>{displayReadingText(action)}</li>)}</ul>
+                  {step.milestone && (
+                    <p className="milestone"><strong>{t.milestone}</strong>{displayReadingText(step.milestone)}</p>
+                  )}
                 </div>
               </li>
             ))}
           </ol>
+
+          <div className="compass-extras">
+            {result.firstWeek && result.firstWeek.length > 0 && (
+              <WeekChecklist
+                tasks={result.firstWeek}
+                storageKey={hashResult([result.firstWeek, result.steps.map((step) => step.title)])}
+                basic={result.basicSections?.includes("firstWeek") ?? result.planSource === "basic"}
+                language={language}
+              />
+            )}
+            {result.resumeLines && result.resumeLines.length > 0 && (
+              <ResumeLines lines={result.resumeLines} language={language} />
+            )}
+            {result.interview && result.interview.length > 0 && (
+              <InterviewList
+                items={result.interview}
+                basic={result.basicSections?.includes("interview") ?? result.planSource === "basic"}
+                language={language}
+              />
+            )}
+            {result.risks && result.risks.length > 0 && (
+              <RiskList
+                items={result.risks}
+                basic={result.basicSections?.includes("risks") ?? result.planSource === "basic"}
+                language={language}
+              />
+            )}
+            {((result.resources && result.resources.length > 0) || (result.searchLinks && result.searchLinks.length > 0)) && (
+              <ResourceList resources={result.resources || []} searchLinks={result.searchLinks || []} language={language} />
+            )}
+          </div>
 
         </section>
       )}

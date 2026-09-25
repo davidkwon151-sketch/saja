@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test tests/*.test.ts",
+    "test": "tsx --import ./tests/support/ignore-css.ts --test tests/*.test.ts",
     "check": "npm run typecheck && npm test"
   },
   "dependencies": {

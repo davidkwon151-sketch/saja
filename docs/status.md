@@ -19,3 +19,6 @@ Spec을 만들면 아래 목록에 파일명을 추가합니다. 구현과 검�
 - [x] `011-future-motivation-quotes.md`
 - [x] `012-date-input-ux.md`
 - [x] `013-quokka-insight-narration.md`
+- [ ] `014-layout-tone-upgrade.md`
+- [x] `015-quote-pool-upgrade.md` — 출처 자동 확인·테스트 88/88 통과, 실제 브라우저 확인은 남음
+- [ ] `016-career-compass-advice.md` — 테스트 89/89·빌드·링크 검증·로컬 화면(375px) 확인 완료, 실제 Gemini 키로 배포 환경 응답 확인 대기

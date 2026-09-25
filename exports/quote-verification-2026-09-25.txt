@@ -1,0 +1,460 @@
+Career Compass quote verification — 2026-09-25T09:39:20.016Z
+Input: exports/quote-candidates-2026-09-25.json
+Rule: first normalized match must be in an <h2> (and <h3>/<h4>) section not titled Disputed / Misattributed / Quotes about… / About… / See also / Attributed / Unsourced.
+
+PASS   quote   seneca-dare — "It is not because things are difficult that we do not dare, but because we do not dare, things are difficult." (Seneca · Moral Letters)
+       https://en.wikiquote.org/wiki/Seneca_the_Younger
+       section "Quotes > Letter CIV: On Care of Health and Peace of Mind"
+PASS   quote   seneca-port — "If one does not know to which port one is sailing, no wind is favorable." (Seneca · Moral Letters)
+       https://en.wikiquote.org/wiki/Seneca_the_Younger
+       section "Quotes > Letter LXXI: On the supreme good"
+PASS   quote   seneca-begin — "Begin at once to live, and count each separate day as a separate life." (Seneca · Moral Letters)
+       https://en.wikiquote.org/wiki/Seneca_the_Younger
+       section "Quotes > Letter CI: On the Futility of Planning Ahead"
+PASS   quote   seneca-postponing — "While we are postponing, life speeds by." (Seneca · Moral Letters)
+       https://en.wikiquote.org/wiki/Seneca_the_Younger
+       section "Quotes > Letter I: On Saving Time"
+PASS   quote   epictetus-first-say — "First say to yourself what you would be; and then do what you have to do." (Epictetus · Discourses)
+       https://en.wikiquote.org/wiki/Epictetus
+       section "Quotes > Book III"
+PASS   quote   aurelius-obstacle — "What stands in the way becomes the way." (Marcus Aurelius · Meditations)
+       https://en.wikiquote.org/wiki/Marcus_Aurelius
+       section "Quotes > Book V"
+PASS   quote   kierkegaard-backwards — "Life can only be understood backwards; but it must be lived forwards." (Søren Kierkegaard · Journals)
+       https://en.wikiquote.org/wiki/S%C3%B8ren_Kierkegaard
+       section "Quotes > The Journals of Søren Kierkegaard, 1840s"
+PASS   quote   beckett-fail-better — "Ever tried. Ever failed. No matter. Try Again. Fail again. Fail better." (Samuel Beckett · Worstward Ho)
+       https://en.wikiquote.org/wiki/Samuel_Beckett
+       section "Quotes > Worstward Ho (1983)"
+PASS   quote   dillard-days — "How we spend our days is, of course, how we spend our lives." (Annie Dillard · The Writing Life)
+       https://en.wikiquote.org/wiki/Annie_Dillard
+       section "Quotes"
+PASS   quote   oliver-wild — "Tell me, what is it you plan to do with your one wild and precious life?" (Mary Oliver · The Summer Day)
+       https://en.wikiquote.org/wiki/Mary_Oliver
+       section "Quotes > New and Selected Poems (1992)"
+PASS   quote   rilke-questions — "Live the questions now." (Rainer Maria Rilke · Letters to a Young Poet)
+       https://en.wikiquote.org/wiki/Rainer_Maria_Rilke
+       section "Quotes > Letters to a Young Poet (1934)"
+REJECT quote   emerson-enthusiasm — "Nothing great was ever achieved without enthusiasm." (Ralph Waldo Emerson · Circles)
+       https://en.wikiquote.org/wiki/Ralph_Waldo_Emerson
+       not found on source page
+PASS   quote   angelou-defeats — "We may encounter many defeats, but we must not be defeated." (Maya Angelou)
+       https://en.wikiquote.org/wiki/Maya_Angelou
+       section "Quotes > I Know Why the Caged Bird Sings (1969)"
+REJECT quote   angelou-work — "Nothing will work unless you do." (Maya Angelou)
+       https://en.wikiquote.org/wiki/Maya_Angelou
+       not found on source page
+REJECT quote   butler-habit — "First forget inspiration. Habit is more dependable." (Octavia E. Butler · Bloodchild)
+       https://en.wikiquote.org/wiki/Octavia_E._Butler
+       not found on source page
+PASS   quote   morrison-write-it — "If you find a book you really want to read but it hasn't been written yet, then you must write it." (Toni Morrison)
+       https://en.wikiquote.org/wiki/Toni_Morrison
+       section "Quotes"
+PASS   quote   feynman-fool — "The first principle is that you must not fool yourself — and you are the easiest person to fool." (Richard Feynman · Cargo Cult Science)
+       https://en.wikiquote.org/wiki/Richard_Feynman
+       section "Quotes"
+PASS   quote   curie-understood — "In life, there's nothing to be feared, everything is to be understood." (Marie Curie)
+       https://en.wikiquote.org/wiki/Marie_Curie
+       section "Quotes"
+REJECT quote   martin-so-good — "Be so good they can't ignore you." (Steve Martin)
+       https://en.wikiquote.org/wiki/Steve_Martin
+       not found on source page
+      ~ [Quotes > Let's Get Small (1977)] (63%) You know, a lot of people come to me and they say: "Steve, how can you be so fucking funny?" There's a secret to it, it's no big deal. Before I go out, I put a slice of bologna in each of my shoes. So when I'm on stage, I feel funny.
+REJECT quote   ashe-start — "Start where you are. Use what you have. Do what you can." (Arthur Ashe)
+       https://en.wikiquote.org/wiki/Arthur_Ashe
+       not found on source page
+PASS   quote   troosevelt-do-what — "Do what you can, with what you have, where you are." (Theodore Roosevelt · An Autobiography)
+       https://en.wikiquote.org/wiki/Theodore_Roosevelt
+       section "Quotes > Theodore Roosevelt — An Autobiography (1913)"
+PASS   quote   eroosevelt-cannot — "You must do the thing you think you cannot do." (Eleanor Roosevelt · You Learn by Living)
+       https://en.wikiquote.org/wiki/Eleanor_Roosevelt
+       section "Quotes > You Learn by Living (1960)"
+PASS   quote   douglass-struggle — "If there is no struggle, there is no progress." (Frederick Douglass)
+       https://en.wikiquote.org/wiki/Frederick_Douglass
+       section "Quotes > West India Emancipation (1857)"
+PASS   quote   vangogh-small — "Great things are not done by impulse, but by a series of small things brought together." (Vincent van Gogh · Letter to Theo)
+       https://en.wikiquote.org/wiki/Vincent_van_Gogh
+       section "Quotes > 1882"
+PASS   quote   camus-summer — "In the middle of winter I at last discovered that there was in me an invincible summer." (Albert Camus · Return to Tipasa)
+       https://en.wikiquote.org/wiki/Albert_Camus
+       section "Quotes"
+REJECT quote   frankl-change — "When we are no longer able to change a situation, we are challenged to change ourselves." (Viktor Frankl · Man's Search for Meaning)
+       https://en.wikiquote.org/wiki/Viktor_Frankl
+       not found on source page
+PASS   quote   leguin-journey — "It is good to have an end to journey towards; but it is the journey that matters, in the end." (Ursula K. Le Guin · The Left Hand of Darkness)
+       https://en.wikiquote.org/wiki/Ursula_K._Le_Guin
+       section "Quotes > The Left Hand of Darkness (1969)"
+REJECT quote   gaiman-good-art — "Make good art." (Neil Gaiman · Commencement address)
+       https://en.wikiquote.org/wiki/Neil_Gaiman
+       not found on source page
+      ~ [Book quotes > The Ocean at the End of the Lane (2013)] (67%) We picked some pea pods, opened them and ate the peas inside. Peas baffled me. I could not understand why grown-ups would take things that tasted so good when they were freshly-picked and raw, and put them in tin cans, and make them revolting. Chapter 10 (p. 1
+      ~ [Book quotes > Good Omens: How Neil Gaiman and Terry Pratchett wrote a book (2014)] (67%) We wrote the first draft in about nine weeks. Nine weeks of gloriously long phone calls, in which we would read each other what we'd written, and try to make the other one laugh. We'd plot, delightedly, and then hurry off the phone, determined to get to the ne
+PASS   quote   earhart-decision — "The most difficult thing is the decision to act, the rest is merely tenacity." (Amelia Earhart)
+       https://en.wikiquote.org/wiki/Amelia_Earhart
+       section "Quotes"
+PASS   quote   kay-invent — "The best way to predict the future is to invent it." (Alan Kay)
+       https://en.wikiquote.org/wiki/Alan_Kay
+       section "Quotes > 1970s"
+PASS   quote   pausch-brick — "The brick walls are there to give us a chance to show how badly we want something." (Randy Pausch · The Last Lecture)
+       https://en.wikiquote.org/wiki/Randy_Pausch
+       section "Quotes > The Last Lecture (2007)"
+PASS   quote   baldwin-faced — "Not everything that is faced can be changed, but nothing can be changed until it is faced." (James Baldwin)
+       https://en.wikiquote.org/wiki/James_Baldwin
+       section "Quotes"
+REJECT quote   hillary-mountain — "It is not the mountain we conquer but ourselves." (Edmund Hillary)
+       https://en.wikiquote.org/wiki/Edmund_Hillary
+       first match is in section "Disputed"
+REJECT quote   dweck-becoming — "Becoming is better than being." (Carol Dweck · Mindset)
+       https://en.wikiquote.org/wiki/Carol_Dweck
+       not found on source page
+PASS   quote   nin-courage — "Life shrinks or expands according to one's courage." (Anaïs Nin)
+       https://en.wikiquote.org/wiki/Ana%C3%AFs_Nin
+       section "Quotes"
+PASS   quote   vonnegut-cliffs — "We have to continually be jumping off cliffs and developing our wings on the way down." (Kurt Vonnegut)
+       https://en.wikiquote.org/wiki/Kurt_Vonnegut
+       section "Quotes > If This Isn't Nice, What Is?: Advice for the Young (2013)"
+REJECT quote   maslow-growth — "One can choose to go back toward safety or forward toward growth." (Abraham Maslow)
+       https://en.wikiquote.org/wiki/Abraham_Maslow
+       not found on source page
+REJECT quote   parton-road — "If you don't like the road you're walking, start paving another one." (Dolly Parton)
+       https://en.wikiquote.org/wiki/Dolly_Parton
+       not found on source page
+REJECT quote   bezos-criticized — "If you never want to be criticized, for goodness' sake don't do anything new." (Jeff Bezos)
+       https://en.wikiquote.org/wiki/Jeff_Bezos
+       not found on source page
+REJECT quote   hoffman-embarrassed — "If you are not embarrassed by the first version of your product, you've launched too late." (Reid Hoffman)
+       https://en.wikiquote.org/wiki/Reid_Hoffman
+       fetch failed: HTTP 404
+PASS   quote   voltaire-best — "The best is the enemy of the good." (Voltaire)
+       https://en.wikiquote.org/wiki/Voltaire
+       section "Quotes > 1770s"
+REJECT quote   hamming-important — "If you do not work on an important problem, it's unlikely you'll do important work." (Richard Hamming · You and Your Research)
+       https://en.wikiquote.org/wiki/Richard_Hamming
+       not found on source page
+PASS   quote   horace-begun — "He who has begun has half done. Dare to be wise; begin!" (Horace · Epistles)
+       https://en.wikiquote.org/wiki/Horace
+       section "Quotes > Epistles (c. 20 BC and 14 BC)"
+PASS   quote   publilius-practice — "Practice is the best of all instructors." (Publilius Syrus · Sententiae)
+       https://en.wikiquote.org/wiki/Publilius_Syrus
+       section "Quotes > The Moral Sayings of Publius Syrus, a Roman Slave"
+PASS   quote   keller-together — "Alone we can do so little; together we can do so much." (Helen Keller · American Foundation for the Blind)
+       https://afb.org/about-afb/history/helen-keller/quotes/helen-keller-quotes-progress
+       section "Breadcrumb"
+PASS   quote   franklin-well-done — "Well done is better than well said." (Benjamin Franklin · Poor Richard's Almanac)
+       https://www.gutenberg.org/cache/epub/36151/pg36151-images.html
+       section "PROVERBS FROM POOR RICHARD'S ALMANAC."
+REJECT quote   jobs-connect — "You can only connect them looking backwards" (Steve Jobs · Stanford commencement)
+       https://news.stanford.edu/stories/2005/06/youve-got-find-love-jobs-says
+       fetch failed: HTTP 403
+PASS   quote   jobs-limited — "Your time is limited, so don't waste it living someone else's life." (Steve Jobs · Stanford commencement)
+       https://en.wikiquote.org/wiki/Steve_Jobs
+       section "Quotes > Address at Stanford University (2005)"
+PASS   quote   jobs-hungry — "Stay hungry. Stay foolish." (The Whole Earth Catalog · quoted by Steve Jobs)
+       https://en.wikiquote.org/wiki/Steve_Jobs
+       section "Quotes > Address at Stanford University (2005)"
+REJECT quote   lee-10000 — "I fear not the man who has practiced 10,000 kicks once, but I fear the man who has practiced one kick 10,000 times." (Bruce Lee)
+       https://en.wikiquote.org/wiki/Bruce_Lee
+       not found on source page
+PASS   quote   confucius-learn — "Learning without thought is labor lost; thought without learning is perilous." (Confucius · Analects)
+       https://en.wikiquote.org/wiki/Confucius
+       section "Quotes > Analects"
+PASS   quote   laozi-journey — "A journey of a thousand li starts with a single step." (Laozi · Tao Te Ching)
+       https://en.wikiquote.org/wiki/Laozi
+       section "Quotes > Chapter 64"
+PASS   quote   heraclitus-river — "You could not step twice into the same river." (Heraclitus)
+       https://en.wikiquote.org/wiki/Heraclitus
+       section "Quotes > As quoted by Plato in Cratylus"
+PASS   quote   ovid-drop — "Drops of water hollow out a stone." (Ovid · Epistulae ex Ponto)
+       https://en.wikiquote.org/wiki/Ovid
+       section "Quotes > Epistulae ex Ponto (Letters From the Black Sea)"
+REJECT quote   sandberg-done — "Done is better than perfect." (Sheryl Sandberg · Lean In)
+       https://en.wikiquote.org/wiki/Sheryl_Sandberg
+       not found on source page
+REJECT quote   graham-want — "Make something people want." (Paul Graham)
+       https://en.wikiquote.org/wiki/Paul_Graham
+       not found on source page
+REJECT quote   okeeffe-terrified — "I've been absolutely terrified every moment of my life – and I've never let it keep me from doing a single thing I wanted to do." (Georgia O'Keeffe)
+       https://en.wikiquote.org/wiki/Georgia_O%27Keeffe
+       not found on source page
+REJECT quote   nadella-learn-it-all — "learn-it-all" (Satya Nadella)
+       https://en.wikiquote.org/wiki/Satya_Nadella
+       not found on source page
+PASS   quote   hemingway-broken — "The world breaks everyone and afterward many are strong at the broken places." (Ernest Hemingway · A Farewell to Arms)
+       https://en.wikiquote.org/wiki/Ernest_Hemingway
+       section "Quotes > A Farewell to Arms (1929)"
+PASS   quote   frost-through — "The best way out is always through." (Robert Frost · A Servant to Servants)
+       https://en.wikiquote.org/wiki/Robert_Frost
+       section "Quotes > North of Boston (1914)"
+PASS   quote   aristotle-doing — "For the things we have to learn before we can do, we learn by doing." (Aristotle · Nicomachean Ethics)
+       https://en.wikiquote.org/wiki/Aristotle
+       section "Quotes > Book II"
+PASS   quote   plato-beginning — "The beginning is the most important part of any work." (Plato · The Republic)
+       https://en.wikiquote.org/wiki/Plato
+       section "Quotes > The Republic"
+PASS   quote   pasteur-prepared — "In the fields of observation chance favours only the prepared mind." (Louis Pasteur · Lecture, University of Lille)
+       https://en.wikiquote.org/wiki/Louis_Pasteur
+       section "Quotes"
+PASS   quote   tagore-sea — "You can't cross the sea merely by standing and staring at the water." (Rabindranath Tagore)
+       https://en.wikiquote.org/wiki/Rabindranath_Tagore
+       section "Quotes > Stray Birds (1916)"
+PASS   quote   einstein-bicycle — "Life is like riding a bicycle. To keep your balance you must keep moving." (Albert Einstein · Letter to his son Eduard)
+       https://en.wikiquote.org/wiki/Albert_Einstein
+       section "Quotes > 1930s"
+PASS   quote   frank-moment — "How wonderful it is that nobody need wait a single moment before beginning to improve the world!" (Anne Frank · Diary)
+       https://en.wikiquote.org/wiki/Anne_Frank
+       section "Quotes > Tales from the Secret Annex"
+PASS   quote   xunzi-death — "Learning proceeds until death and only then does it stop." (Xunzi · An Exhortation to Learning)
+       https://en.wikiquote.org/wiki/Xunzi
+       section "Quotes > An Exhortation to Learning"
+PASS   quote   xunzi-practice — "Knowing it is not as good as putting it into practice." (Xunzi)
+       https://en.wikiquote.org/wiki/Xunzi
+       section "Quotes"
+PASS   quote   musashi-yesterday — "Today is victory over yourself of yesterday" (Miyamoto Musashi · The Book of Five Rings)
+       https://en.wikiquote.org/wiki/Miyamoto_Musashi
+       section "Quotes > The Water Book"
+PASS   quote   thoreau-dreams — "If one advances confidently in the direction of his dreams, and endeavors to live the life which he has imagined, he will meet with a success unexpected in common hours" (Henry David Thoreau · Walden)
+       https://en.wikiquote.org/wiki/Henry_David_Thoreau
+       section "Quotes > Walden (1854)"
+PASS   quote   edison-perspiration — "Genius is one percent inspiration, ninety-nine percent perspiration." (Thomas Edison)
+       https://en.wikiquote.org/wiki/Thomas_Edison
+       section "Quotes > 1900s"
+PASS   quote   wooden-failure — "Failure is not fatal but failure to change might be." (John Wooden)
+       https://en.wikiquote.org/wiki/John_Wooden
+       section "Quotes > Wooden: A Lifetime of Observations and Reflections on and Off the Court (1997)"
+PASS   quote   wooden-team — "A player who makes a team great is more valuable than a great player." (John Wooden)
+       https://en.wikiquote.org/wiki/John_Wooden
+       section "Quotes > IBM Linux Commercial: The Prodigy (2003)"
+PASS   quote   brown-vulnerability — "Vulnerability is not weakness; it's our greatest measure of courage." (Brené Brown)
+       https://en.wikiquote.org/wiki/Bren%C3%A9_Brown
+       section "Quotes > Atlas of the Heart: Mapping Meaningful Connection and the Language of Human Experience (2021)"
+PASS   quote   aesop-steady — "Slow and steady wins the race." (Aesop · The Hare and the Tortoise)
+       https://en.wikiquote.org/wiki/Aesop
+       section "Quotes"
+PASS   quote   lamott-unplug — "Almost everything will work again if you unplug it for a few minutes, including you." (Anne Lamott)
+       https://en.wikiquote.org/wiki/Anne_Lamott
+       section "Quotes"
+REJECT quote   eliot-never-late — "It is never too late to be what you might have been." (George Eliot)
+       https://en.wikiquote.org/wiki/George_Eliot
+       manual review: listed under Middlemarch on Wikiquote with no chapter or page citation (unlike the surrounding entries); excluded as a possibly unverified attribution
+PASS   quote   berra-going — "If you don't know where you're going, you might not get there." (Yogi Berra)
+       https://en.wikiquote.org/wiki/Yogi_Berra
+       section "Quotes > Yogiisms"
+PASS   quote   ruth-strike — "Every strike brings me closer to the next home run." (Babe Ruth)
+       https://en.wikiquote.org/wiki/Babe_Ruth
+       section "Quotes"
+PASS   quote   jordan-teamwork — "Talent wins games, but teamwork and intelligence wins championships." (Michael Jordan · I Can't Accept Not Trying)
+       https://en.wikiquote.org/wiki/Michael_Jordan
+       section "Quotes"
+PASS   proverb en-rome — "Rome wasn't built in a day." (English proverb)
+       https://en.wikiquote.org/wiki/English_proverbs_(alphabetically_by_proverb)
+       section "R"
+REJECT proverb en-little-strokes — "Little strokes fell great oaks." (English proverb)
+       https://en.wikiquote.org/wiki/English_proverbs_(alphabetically_by_proverb)
+       not found on source page
+PASS   proverb en-pudding — "The proof of the pudding is in the eating." (English proverb)
+       https://en.wikiquote.org/wiki/English_proverbs_(alphabetically_by_proverb)
+       section "P"
+PASS   proverb en-nothing-ventured — "Nothing ventured, nothing gained." (English proverb)
+       https://en.wikiquote.org/wiki/English_proverbs_(alphabetically_by_proverb)
+       section "N"
+PASS   proverb en-necessity — "Necessity is the mother of invention." (English proverb)
+       https://en.wikiquote.org/wiki/English_proverbs_(alphabetically_by_proverb)
+       section "N"
+REJECT proverb en-acorns — "Great oaks from little acorns grow." (English proverb)
+       https://en.wikiquote.org/wiki/English_proverbs_(alphabetically_by_proverb)
+       not found on source page
+      ~ [O] (83%) Waters Yarsinke, Amy (2000). Mighty Oaks from Little Acorns Grow: The History of Norfolk Collegiate School . Hallmark Pub Co Inc. pp. 144. 0965375994.
+REJECT proverb en-never-too-late — "It is never too late to learn." (English proverb)
+       https://en.wikiquote.org/wiki/English_proverbs_(alphabetically_by_proverb)
+       not found on source page
+      ~ [I] (71%) It's never too late to mend. Mieder, Wolfgang; Kingsbury, Stewart A.; Harder, Kelsie B. (1992). A Dictionary of American proverbs . p. 602. .
+PASS   proverb en-actions — "Actions speak louder than words." (English proverb)
+       https://en.wikiquote.org/wiki/English_proverbs_(alphabetically_by_proverb)
+       section "A"
+PASS   proverb en-silver — "Every cloud has a silver lining." (English proverb)
+       https://en.wikiquote.org/wiki/English_proverbs_(alphabetically_by_proverb)
+       section "E"
+PASS   proverb en-many-hands — "Many hands make light work." (English proverb)
+       https://en.wikiquote.org/wiki/English_proverbs_(alphabetically_by_proverb)
+       section "M"
+PASS   proverb en-eggs — "Don't put all your eggs in one basket." (English proverb)
+       https://en.wikiquote.org/wiki/English_proverbs_(alphabetically_by_proverb)
+       section "D"
+PASS   proverb jp-seven-eight — "Fall down seven times, get up eight." (Japanese proverb)
+       https://en.wikiquote.org/wiki/Japanese_proverbs
+       section "Sayings"
+PASS   proverb jp-monkeys — "Even monkeys fall from trees." (Japanese proverb)
+       https://en.wikiquote.org/wiki/Japanese_proverbs
+       section "Sayings"
+REJECT proverb jp-dust — "Even dust, when piled up, can become a mountain." (Japanese proverb)
+       https://en.wikiquote.org/wiki/Japanese_proverbs
+       not found on source page
+PASS   proverb jp-tiger — "If you do not enter the tiger's cave, you will not catch its cub." (Japanese proverb)
+       https://en.wikiquote.org/wiki/Japanese_proverbs
+       section "Sayings"
+PASS   proverb jp-rock — "Three years on a rock" (Japanese proverb)
+       https://en.wikiquote.org/wiki/Japanese_proverbs
+       section "Idiomatic phrases"
+PASS   proverb jp-little-strokes — "With many little strokes a large tree is felled." (Japanese proverb)
+       https://en.wikiquote.org/wiki/Japanese_proverbs
+       section "Sayings"
+PASS   proverb kr-half — "Starting is half the task." (Korean proverb)
+       https://en.wikiquote.org/wiki/Korean_proverbs
+       section "V"
+PASS   proverb kr-will-road — "In a place where there is will, there is a road." (Korean proverb)
+       https://en.wikiquote.org/wiki/Korean_proverbs
+       section "T"
+REJECT proverb kr-sky — "Even if the sky falls, there is a hole to escape through." (Korean proverb)
+       https://en.wikiquote.org/wiki/Korean_proverbs
+       not found on source page
+REJECT proverb kr-paper — "Even a sheet of paper is lighter if two people lift it together." (Korean proverb)
+       https://en.wikiquote.org/wiki/Korean_proverbs
+       not found on source page
+PASS   proverb cn-teachers — "Teachers open the door. You enter by yourself." (Chinese proverb)
+       https://en.wikiquote.org/wiki/Chinese_proverbs
+       section "Proverbs > Sh"
+PASS   proverb cn-windmills — "When the wind changes direction, some people build walls while others build windmills" (Chinese proverb)
+       https://en.wikiquote.org/wiki/Chinese_proverbs
+       section "Proverbs > F"
+REJECT proverb cn-dig-well — "Dig the well before you are thirsty." (Chinese proverb)
+       https://en.wikiquote.org/wiki/Chinese_proverbs
+       not found on source page
+REJECT proverb cn-tree — "The best time to plant a tree was 20 years ago. The second best time is now." (Chinese proverb)
+       https://en.wikiquote.org/wiki/Chinese_proverbs
+       not found on source page
+REJECT proverb af-go-far — "If you want to go fast, go alone. If you want to go far, go together." (African proverb)
+       https://en.wikiquote.org/wiki/African_proverbs
+       fetch failed: HTTP 404
+PASS   proverb la-festina — "Make haste slowly." (Latin proverb · Festina lente)
+       https://en.wikiquote.org/wiki/Latin_proverbs
+       section "F"
+PASS   proverb la-fortune — "Fortune favors the bold." (Latin proverb · Audentes fortuna juvat)
+       https://en.wikiquote.org/wiki/Latin_proverbs
+       section "A"
+PASS   proverb la-docendo — "By teaching, we learn." (Latin proverb · Docendo discimus)
+       https://en.wikiquote.org/wiki/Latin_proverbs
+       section "D"
+PASS   proverb la-parvis — "Greatness from Small Beginnings." (Latin proverb · Sic parvis magna)
+       https://en.wikiquote.org/wiki/Latin_proverbs
+       section "S"
+PASS   proverb la-usus — "Experience is the best teacher." (Latin proverb · Usus magister est optimus)
+       https://en.wikiquote.org/wiki/Latin_proverbs
+       section "U"
+PASS   proverb la-quies — "Rest is the best medicine." (Latin proverb · Optimum medicamentum quies est)
+       https://en.wikiquote.org/wiki/Latin_proverbs
+       section "O"
+PASS   proverb la-non-solum — "We are not born for ourselves alone." (Latin proverb · Non nobis solum nati sumus)
+       https://en.wikiquote.org/wiki/Latin_proverbs
+       section "N"
+REJECT proverb la-aspera — "Through hardships to the stars." (Latin proverb · Per aspera ad astra)
+       https://en.wikiquote.org/wiki/Latin_proverbs
+       not found on source page
+      ~ [M] (80%) Translation: "Be strong, young man! Through this way one gets to the stars." (Motto of the Brazilian Air Force Academy)
+      ~ [M] (60%) Macte animo! Generose puer sic itur ad astra! Literal translation: "Glorified in soul! The boy by excellence is carried on to the stars!"
+PASS   proverb fr-step-back — "One must step back to take a good leap." (French proverb · Il faut reculer pour mieux sauter)
+       https://en.wikiquote.org/wiki/French_proverbs
+       section "I"
+REJECT proverb fr-bird-nest — "Little by little, the bird builds its nest." (French proverb)
+       https://en.wikiquote.org/wiki/French_proverbs
+       not found on source page
+PASS   proverb de-persist — "To begin is easy, to persist is an art." (German proverb · Anfangen ist leicht, beharren eine Kunst)
+       https://en.wikiquote.org/wiki/German_proverbs
+       section "A"
+REJECT proverb de-no-master — "No master has fallen from the sky." (German proverb)
+       https://en.wikiquote.org/wiki/German_proverbs
+       not found on source page
+PASS   proverb ru-skilled — "Work is afraid of a skilled worker." (Russian proverb)
+       https://en.wikiquote.org/wiki/Russian_proverbs
+       section "Confirmed through Russian Proverbs and Sayings > Д"
+PASS   proverb ru-century — "Live for a century — learn for a century." (Russian proverb)
+       https://en.wikiquote.org/wiki/Russian_proverbs
+       section "Confirmed through Russian Proverbs and Sayings > В"
+PASS   proverb ru-no-mistakes — "Only he who does nothing makes no mistakes." (Russian proverb)
+       https://en.wikiquote.org/wiki/Russian_proverbs
+       section "Confirmed through Russian Proverbs and Sayings > Н"
+PASS   proverb ru-repetition — "Repetition is the mother of learning." (Russian proverb)
+       https://en.wikiquote.org/wiki/Russian_proverbs
+       section "Confirmed through Russian Proverbs and Sayings > П"
+PASS   proverb ru-measure — "Measure seven times, cut once." (Russian proverb)
+       https://en.wikiquote.org/wiki/Russian_proverbs
+       section "Confirmed through Russian Proverbs and Sayings > С"
+PASS   proverb ru-patience-work — "Patience and work will fray through anything." (Russian proverb)
+       https://en.wikiquote.org/wiki/Russian_proverbs
+       section "Confirmed through Russian Proverbs and Sayings > Т"
+REJECT proverb ru-wolves — "If you are afraid of wolves, don't go into the forest." (Russian proverb)
+       https://en.wikiquote.org/wiki/Russian_proverbs
+       not found on source page
+REJECT proverb tr-wrong-road — "No matter how far you have gone on a wrong road, turn back." (Turkish proverb)
+       https://en.wikiquote.org/wiki/Turkish_proverbs
+       not found on source page
+REJECT proverb ar-trust-camel — "Trust in God, but tie your camel." (Arabic proverb)
+       https://en.wikiquote.org/wiki/Arabic_proverbs
+       not found on source page
+PASS   proverb sw-star — "Don't set sail using somebody else's star." (Swahili proverb · Usisafirie nyota ya mwenzio)
+       https://en.wikiquote.org/wiki/Swahili_proverbs
+       section "Proverbs (alphabetical)"
+PASS   proverb sw-person-people — "A person is people." (Swahili proverb · Mtu ni watu)
+       https://en.wikiquote.org/wiki/Swahili_proverbs
+       section "Proverbs (alphabetical)"
+PASS   proverb sw-hurry — "Hurry, hurry, has no blessings." (Swahili proverb · Haraka haraka haina baraka)
+       https://en.wikiquote.org/wiki/Swahili_proverbs
+       section "Proverbs (alphabetical)"
+PASS   proverb sw-bees — "Follow bees that you may eat honey." (Swahili proverb · Fuata nyuki ule asali)
+       https://en.wikiquote.org/wiki/Swahili_proverbs
+       section "Proverbs (alphabetical)"
+PASS   proverb haw-cliff — "No cliff is so tall it cannot be climbed." (Hawaiian proverb)
+       https://en.wikiquote.org/wiki/Hawaiian_proverbs
+       section "A"
+PASS   proverb et-fear-eyes — "Fear has big eyes." (Estonian proverb · Hirmul on suured silmad)
+       https://en.wikiquote.org/wiki/Estonian_proverbs
+       section "H"
+PASS   proverb et-hand-alone — "A hand doesn't wash alone." (Estonian proverb · Üks käsi ei pese üksi)
+       https://en.wikiquote.org/wiki/Estonian_proverbs
+       section "Ü"
+PASS   proverb et-morning-gold — "Morning work gold, evening work soil." (Estonian proverb · Hommikune töö kuld, õhtune muld)
+       https://en.wikiquote.org/wiki/Estonian_proverbs
+       section "H"
+PASS   proverb ta-creepers — "If tender creepers cling together there will be strength." (Tamil proverb)
+       https://en.wikiquote.org/wiki/Tamil_proverbs
+       section "A"
+PASS   proverb ta-somersault — "Rest on something solid and then make your somersault." (Tamil proverb)
+       https://en.wikiquote.org/wiki/Tamil_proverbs
+       section "A"
+PASS   proverb se-sail — "Don't complain about lack of wind – learn to sail." (Swedish proverb · Klaga inte över för lite vind - lär dig segla)
+       https://en.wikiquote.org/wiki/Swedish_proverbs
+       section "K"
+PASS   proverb se-never-late — "It is never too late." (Swedish proverb · Det är aldrig för sent)
+       https://en.wikiquote.org/wiki/Swedish_proverbs
+       section "D"
+PASS   proverb se-hoping — "Patience is the art of hoping." (Swedish proverb · Tålamod är konsten att hoppas)
+       https://en.wikiquote.org/wiki/Swedish_proverbs
+       section "T"
+PASS   proverb se-mistakes — "One learns from mistakes." (Swedish proverb · Man lär sig av misstagen)
+       https://en.wikiquote.org/wiki/Swedish_proverbs
+       section "M"
+PASS   proverb se-practice — "Practice gives skill." (Swedish proverb · Övning ger färdighet)
+       https://en.wikiquote.org/wiki/Swedish_proverbs
+       section "Ö"
+PASS   proverb fi-slowly — "Good comes slowly." (Finnish proverb · Hiljaa hyvä tulee)
+       https://en.wikiquote.org/wiki/Finnish_proverbs
+       section "H"
+PASS   proverb fi-curves — "The journey has many curves." (Finnish proverb)
+       https://en.wikiquote.org/wiki/Finnish_proverbs
+       section "R"
+PASS   proverb ie-third — "It is a third of the work to begin." (Irish proverb · Is trian de'n obair tús a chur)
+       https://en.wikiquote.org/wiki/Irish_proverbs
+       section "I"
+PASS   proverb ie-beginning-weak — "Every beginning is weak." (Irish proverb · Bíonn gach tosú lag)
+       https://en.wikiquote.org/wiki/Irish_proverbs
+       section "B"
+PASS   proverb mi-kumara — "The sweet potato does not speak of its own sweetness." (Māori proverb · Kaore te kumara e korero mo tona ake reka)
+       https://en.wikiquote.org/wiki/Maori_proverbs
+       section "K"
+PASS   proverb in-pitcher — "It takes drop by drop to fill a pitcher." (Indian proverb)
+       https://en.wikiquote.org/wiki/Indian_proverbs
+       section "Quotes"
+PASS   proverb cz-roses — "Patience brings roses." (Czech proverb · Trpělivost růže přináší)
+       https://en.wikiquote.org/wiki/Czech_proverbs
+       section "T"
+
+SUMMARY: 113/149 verified (quotes 59, proverbs 54); rejected 36: emerson-enthusiasm, angelou-work, butler-habit, martin-so-good, ashe-start, frankl-change, gaiman-good-art, hillary-mountain, dweck-becoming, maslow-growth, parton-road, bezos-criticized, hoffman-embarrassed, hamming-important, jobs-connect, lee-10000, sandberg-done, graham-want, okeeffe-terrified, nadella-learn-it-all, eliot-never-late, en-little-strokes, en-acorns, en-never-too-late, jp-dust, kr-sky, kr-paper, cn-dig-well, cn-tree, af-go-far, la-aspera, fr-bird-nest, de-no-master, ru-wolves, tr-wrong-road, ar-trust-camel

@@ -1,0 +1,114 @@
+/* 커리어 나침반 실무 조언 섹션 (spec 016). 전역 변수만 사용하고 전역 규칙은 바꾸지 않는다. */
+
+.compass-card {
+  margin-top: 24px;
+  padding: clamp(20px, 4vw, 36px);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--white);
+  box-shadow: 0 12px 36px rgba(45, 78, 62, .055);
+  overflow-wrap: anywhere;
+}
+.compass-card h3 { margin: 12px 0 12px; font-size: clamp(21px, 2.6vw, 26px); }
+.compass-card h4 { margin: 20px 0 10px; font-size: 16px; }
+.compass-intro { margin: 0 0 16px; color: var(--muted); font-size: 14px; }
+.compass-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.compass-basic {
+  display: inline-block; padding: 3px 10px; border: 1px solid var(--border); border-radius: 999px;
+  background: var(--paper); color: var(--muted); font-size: 12px; font-weight: 750;
+}
+.compass-extras { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 20px; align-items: start; }
+.compass-extras > .week-card, .compass-extras > .resource-card, .compass-extras > .resume-card { grid-column: 1 / -1; }
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* 핵심 진단 */
+.core-issue {
+  margin: 0; padding: 16px 20px; border-left: 4px solid var(--blue); border-radius: 14px;
+  background: var(--mint); color: var(--ink); font-size: clamp(16px, 1.8vw, 18px); line-height: 1.7;
+}
+.core-issue strong { display: block; margin-bottom: 4px; color: var(--blue); font-size: 13px; letter-spacing: .02em; }
+.gap-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.gap-row { min-width: 0; padding: 14px 16px; border: 1px solid var(--border); border-radius: 14px; background: #fcfdfb; }
+.gap-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.gap-skill { font-weight: 800; }
+.gap-badge { flex: none; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 800; }
+.gap-have { background: var(--mint); color: #24604a; }
+.gap-partial { background: #fdf1e2; color: #8a4f1b; }
+.gap-missing { background: #fbe6e0; color: #9c3f27; }
+.gap-row p { margin: 8px 0 0; color: var(--ink); font-size: 14px; line-height: 1.6; }
+.gap-label, .qa-label {
+  display: inline-block; margin-right: 6px; color: var(--muted); font-size: 12px; font-weight: 800;
+}
+
+/* 계획의 완료 기준 */
+.milestone {
+  margin: 12px 0 0; padding: 10px 14px; border-radius: 12px; background: var(--paper);
+  color: var(--ink); font-size: 14px; line-height: 1.6;
+}
+.milestone strong { margin-right: 6px; color: var(--coral); }
+
+/* 이번 주 할 일 */
+.week-progress { margin: 0 0 8px; color: var(--blue); font-size: 14px; font-weight: 800; }
+.week-list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.week-item {
+  display: flex; align-items: flex-start; gap: 12px; min-height: 44px; margin: 0; padding: 10px 14px;
+  border: 1px solid var(--border); border-radius: 14px; background: #fcfdfb; font-weight: 500; cursor: pointer;
+}
+.week-item input {
+  flex: none; width: 22px; min-height: 22px; height: 22px; margin: 1px 0 0; padding: 0;
+  accent-color: var(--blue); cursor: pointer;
+}
+.week-item:has(input:checked) { background: var(--mint); }
+.week-item:has(input:checked) span { color: var(--muted); text-decoration: line-through; }
+.week-item:has(input:focus-visible) { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+/* 이력서 문장 */
+.resume-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.resume-list li {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 12px 14px; border: 1px solid var(--border); border-radius: 14px; background: #fcfdfb;
+}
+.resume-list p { min-width: 0; margin: 0; line-height: 1.6; }
+.copy-button {
+  flex: none; min-width: 72px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--blue);
+  border-radius: 12px; background: var(--white); color: var(--blue); font-size: 14px;
+}
+.copy-button:hover:not(:disabled) { background: var(--mint); color: var(--blue); }
+
+/* 면접 질문 · 리스크 */
+.qa-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.qa-list li { padding: 14px 16px; border-radius: 14px; background: var(--paper); }
+.qa-list strong { display: block; line-height: 1.5; }
+.qa-list p { margin: 6px 0 0; font-size: 14px; line-height: 1.6; }
+.risk-card .qa-list li { border-left: 4px solid var(--coral); }
+
+/* 추천 리소스 */
+.search-links { padding: 16px 18px; border-radius: 16px; background: var(--mint); }
+.search-links h4 { margin: 0 0 10px; }
+.search-links ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 6px; padding: 0; list-style: none; }
+.search-links a, .resource-item a {
+  display: inline-flex; align-items: center; min-height: 44px; font-weight: 800; text-underline-offset: 3px;
+}
+.search-links a {
+  padding: 8px 14px; border: 1px solid var(--blue); border-radius: 999px; background: var(--white); text-decoration: none;
+}
+.search-links a:hover { background: var(--blue); color: var(--white); }
+.search-links small { display: block; }
+.resource-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 20px; }
+.resource-group { min-width: 0; }
+.resource-group ul { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.resource-item { padding: 6px 14px 12px; border: 1px solid var(--border); border-radius: 14px; background: #fcfdfb; }
+.resource-item p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.resource-ai {
+  display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: 999px;
+  background: #fdf1e2; color: #8a4f1b; font-size: 11px; font-weight: 800; vertical-align: middle;
+}
+
+@media (max-width: 720px) {
+  .compass-extras, .gap-list, .resource-groups { grid-template-columns: minmax(0, 1fr); }
+  .resume-list li { flex-direction: column; align-items: stretch; }
+  .copy-button { align-self: flex-end; }
+}

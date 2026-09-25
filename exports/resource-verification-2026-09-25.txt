@@ -1,0 +1,76 @@
+# Career Compass resource URL verification
+# date: 2026-09-25 (run at 2026-09-25T09:36:00.679Z)
+# method: Node 22 fetch, GET, redirect=follow, desktop Chrome User-Agent, 20s timeout
+# columns: status | id | url | final url after redirects | ms | page title
+
+## Catalog (lib/career/resources.ts)
+200 | work24-jobs | https://www.work24.go.kr/wk/a/b/1200/retriveDtlEmpSrchList.do | https://www.work24.go.kr/wk/a/b/1200/retriveDtlEmpSrchList.do | 456ms | 채용정보 상세검색 | 일자리 찾기 | 채용정보
+200 | saramin | https://www.saramin.co.kr/ | https://www.saramin.co.kr/zf_user/ | 435ms | 나에게 딱 맞는 커리어만 매치, 사람인! | 취업, 채용, 커리어 매칭 플랫폼
+200 | jobkorea | https://www.jobkorea.co.kr/ | https://www.jobkorea.co.kr/ | 381ms | 잡코리아 | 대한민국 대표 구인구직, 취업 정보 &amp; 채용 플랫폼
+200 | wanted | https://www.wanted.co.kr/ | https://www.wanted.co.kr/ | 307ms | 원티드 - 일하는 사람들의 모든 가능성
+200 | remember | https://career.rememberapp.co.kr/ | https://career.rememberapp.co.kr/ | 279ms | 리멤버 - 채용 솔루션
+200 | linkedin-jobs | https://www.linkedin.com/jobs/ | https://www.linkedin.com/jobs/ | 401ms | LinkedIn 채용공고 검색: US에 있는 채용공고, 인턴십을 찾으세요.
+200 | jumpit | https://jumpit.saramin.co.kr/ | https://jumpit.saramin.co.kr/ | 299ms | 점핏 | 개발자 커리어 점프
+200 | jasoseol | https://jasoseol.com/ | https://jasoseol.com/ | 621ms | 나의 첫 취업플랫폼, 자소설닷컴 | 대기업, 공기업 맞춤 채용
+200 | peoplenjob | https://www.peoplenjob.com/ | https://www.peoplenjob.com/ | 1067ms | 외국기업 취업전문 사이트 피플앤잡
+200 | worldjob | https://www.worldjob.or.kr/ | https://www.worldjob.or.kr/ | 182ms | 월드잡플러스
+200 | gojobs | https://www.gojobs.go.kr/ | https://www.gojobs.go.kr/ | 203ms | 나라일터
+200 | job-alio | https://job.alio.go.kr/ | https://job.alio.go.kr/ | 169ms | 기획재정부 | 공공기관 채용정보 시스템
+200 | work24-programs | https://www.work24.go.kr/cm/f/e/0100/empPrgSrchMain.do | https://www.work24.go.kr/cm/f/e/0100/empPrgSrchMain.do | 343ms | 취업역량 강화프로그램 | 취업지원 프로그램 통합검색 | 청년 취업역량강화 | 취업지원
+200 | work24-training | https://www.work24.go.kr/hr/a/a/1100/trnnCrsInf.do | https://www.work24.go.kr/hr/a/a/1100/trnnCrsInf.do | 909ms | 훈련 통합검색 | 훈련 찾기·신청 | 직업능력개발
+200 | saeil | https://saeil.mogef.go.kr/ | https://saeil.mogef.go.kr/hom/HOM_Main.do | 520ms | 여성새로일하기센터 | 메인페이지
+200 | youthcenter | https://www.youthcenter.go.kr/ | https://www.youthcenter.go.kr/ | 697ms | 온통청년
+200 | seoul-50plus | https://www.50plus.or.kr/ | https://www.50plus.or.kr/ | 974ms | 서울시50플러스 일자리몽땅 | 중장년 취업·교육·경력 지원
+200 | kmooc | https://www.kmooc.kr/ | https://www.kmooc.kr/ | 668ms | | K-MOOC
+200 | inflearn | https://www.inflearn.com/ | https://www.inflearn.com/ | 533ms | 인프런 - 최대 AI, AX 강의 학습 플랫폼
+200 | programmers-school | https://school.programmers.co.kr/ | https://school.programmers.co.kr/ | 205ms | 프로그래머스 스쿨
+200 | boostcourse | https://www.boostcourse.org/ | https://www.boostcourse.org/ | 280ms | 부스트코스
+200 | coursera | https://www.coursera.org/career-academy | https://www.coursera.org/career-academy | 535ms | 경력 경로 살펴보기: 직무별 강좌 찾기 및 기술 쌓기 | Coursera
+200 | step | https://www.step.or.kr/ | https://www.step.or.kr/portal/ | 819ms | 국민평생직업능력개발 STEP
+200 | google-skillshop | https://skillshop.withgoogle.com/ | https://skillshop.withgoogle.com/ | 769ms | Skillshop
+200 | qnet | https://www.q-net.or.kr/ | https://www.q-net.or.kr/ | 220ms | Q-Net 자격의 모든 것
+200 | dataq | https://www.dataq.or.kr/ | https://www.dataq.or.kr/ | 203ms | 
+200 | korcham-license | https://license.korcham.net/ | https://license.korcham.net/ | 196ms | ���ѻ��ȸ�Ǽ� �ڰ��򰡻����
+200 | toeic | https://exam.toeic.co.kr/ | https://exam.toeic.co.kr/ | 269ms | TOEIC® 공식 사이트
+200 | opic | https://www.opic.or.kr/ | https://www.opic.or.kr/ | 167ms | Portal OPIc's System
+200 | linkareer | https://linkareer.com/ | https://linkareer.com/ | 645ms | 링커리어 LINKareer | 대외활동 공모전 대학생 인턴 대기업 채용정보
+200 | thinkgood | https://www.thinkcontest.com/ | https://www.thinkcontest.com/thinkgood/index.do | 1356ms | 공모전 대한민국 대표 미디어 씽굿 Thinkgood
+200 | campuspick | https://www.campuspick.com/ | https://www.campuspick.com/ | 288ms | 에브리커리어(캠퍼스픽)
+200 | wevity | https://www.wevity.com/ | https://www.wevity.com/ | 676ms | 공모전 대외활동 콘테스트 - 위비티
+200 | dacon | https://dacon.io/competitions | https://dacon.io/competitions | 1415ms | 대회: 도전으로 기회를 얻으세요 - DACON
+200 | kaggle | https://www.kaggle.com/ | https://www.kaggle.com/ | 439ms | 브라우저 확인 중 - reCAPTCHA
+200 | github | https://github.com/ | https://github.com/ | 573ms | GitHub · Change is constant. GitHub keeps you ahead. · GitHu
+200 | notion-portfolio | https://www.notion.com/templates/category/portfolio | https://www.notion.com/templates/category/portfolio | 360ms | Best Portfolio Templates from Notion | Notion Marketplace
+403 | behance | https://www.behance.net/ | https://www.behance.net/ | 252ms | 
+200 | data-go-kr | https://www.data.go.kr/ | https://www.data.go.kr/ | 460ms | 공공데이터포털
+200 | linkedin | https://www.linkedin.com/ | https://www.linkedin.com/ | 553ms | LinkedIn 로그인 또는 회원 가입
+200 | careerly | https://careerly.co.kr/ | https://careerly.co.kr/ | 482ms | AI 시대의 커리어 - 커리어리
+200 | careernet | https://www.career.go.kr/ | https://www.career.go.kr/cloud/w/main/home | 359ms | 메인 | 진로정보망 커리어넷
+200 | work24-aptitude | https://www.work24.go.kr/wk/r/c/1000/jobPsyExamList.do | https://www.work24.go.kr/wk/r/c/1000/jobPsyExamList.do | 544ms | 직업심리검사 실시 | 직업심리검사 | 취업가이드 | 취업지원
+403 | jobplanet | https://www.jobplanet.co.kr/ | https://www.jobplanet.co.kr/ | 264ms | Attention Required! | Cloudflare
+200 | dart | https://dart.fss.or.kr/ | https://dart.fss.or.kr/ | 305ms | 전자공시시스템
+
+## Job search deep-link patterns (jobSearchLinks)
+200 | search-saramin | https://www.saramin.co.kr/zf_user/search?searchword=%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D%EA%B0%80 | https://www.saramin.co.kr/zf_user/search?searchword=%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D%EA%B0%80 | 742ms | 데이터 분석가 통합검색 | 총 881건의 검색결과 - 사람인
+200 | search-wanted | https://www.wanted.co.kr/search?query=%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D%EA%B0%80&tab=position | https://www.wanted.co.kr/search?query=%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D%EA%B0%80&tab=position | 57ms | 데이터 분석가 | 원티드 통합검색
+200 | search-jobkorea | https://www.jobkorea.co.kr/Search/?stext=%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D%EA%B0%80 | https://www.jobkorea.co.kr/Search/?stext=%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D%EA%B0%80 | 208ms | &#x27;데이터 분석가&#x27; 관련 📢 채용공고 | 총 338건의 검색결과
+200 | search-saramin | https://www.saramin.co.kr/zf_user/search?searchword=Overseas%20Sales | https://www.saramin.co.kr/zf_user/search?searchword=Overseas%20Sales | 737ms | Overseas Sales 통합검색 | 총 72건의 검색결과 - 사람인
+200 | search-wanted | https://www.wanted.co.kr/search?query=Overseas%20Sales&tab=position | https://www.wanted.co.kr/search?query=Overseas%20Sales&tab=position | 74ms | Overseas Sales | 원티드 통합검색
+200 | search-linkedin | https://www.linkedin.com/jobs/search/?keywords=Overseas%20Sales&location=South%20Korea | https://www.linkedin.com/jobs/search/?keywords=Overseas%20Sales&location=South%20Korea | 1031ms | 대한민국 지역 Overseas Sales 채용공고 (채용공고 1,000+) | LinkedIn
+
+## Manual browser check (built-in browser pane, 2026-09-25)
+- behance: fetch 403 is Cloudflare/Adobe bot protection. Browser loaded https://www.behance.net/ with title "작품 전시, 발견, 크리에이터 채용 :: Behance" -> KEEP.
+- jobplanet: fetch 403 is Cloudflare bot protection. Browser redirected to https://www.jobplanet.co.kr/welcome/index, title "NO.1 기업 정보 플랫폼 | 잡플래닛" -> KEEP.
+- kaggle: fetch title "브라우저 확인 중 - reCAPTCHA" (bot check). Browser title "Kaggle: The World's AI Proving Ground" -> KEEP.
+- dataq: fetch 200 with empty title. Browser opened the site; it shows a developer-tools detection page to the automated browser only. Official K-DATA certification site -> KEEP.
+- korcham-license: title is EUC-KR encoded (garbled in UTF-8 decode); status 200 -> KEEP.
+
+## Candidates dropped or fixed during verification
+- DROPPED https://career.programmers.co.kr/ : ENOTFOUND (domain no longer resolves). Developer jobs covered by jumpit (https://jumpit.saramin.co.kr/, 200).
+- DROPPED https://www.rocketpunch.com/ : 403 Cloudflare; service status uncertain, not needed.
+- DROPPED https://kreditjob.com/ : TLS certificate chain error (UNABLE_TO_GET_ISSUER_CERT_LOCALLY).
+- DROPPED https://www.work.go.kr/consltJobCarpa/srch/korJobProf/korJobProfSrch.do : 404 (WorkNet job-info pages moved to 고용24). Replaced by 고용24 직업심리검사 https://www.work24.go.kr/wk/r/c/1000/jobPsyExamList.do (200) and 커리어넷.
+- FIXED https://www.kua.go.kr/ (국민취업지원제도) and https://www.hrd.go.kr/ (HRD-Net) : both redirect to 고용24 main. Replaced by direct 고용24 pages: 취업지원 프로그램 통합검색 https://www.work24.go.kr/cm/f/e/0100/empPrgSrchMain.do and 국민내일배움카드 훈련 통합검색 https://www.work24.go.kr/hr/a/a/1100/trnnCrsInf.do (both 200).
+- FIXED https://www.jumpit.co.kr/ -> https://jumpit.saramin.co.kr/ ; https://www.jasoseol.com/ -> https://jasoseol.com/ ; https://step.or.kr/ -> https://www.step.or.kr/ ; https://50plus.or.kr/ -> https://www.50plus.or.kr/ (use final URLs).
+- NOT USED (verified 200 but trimmed to keep the catalog focused): O*NET OnLine, edX, Dribbble (202), Disquiet, Blind, Catch, 한국고용정보원, wagework.go.kr.
+- 캠퍼스픽: https://www.campuspick.com/ now titled "에브리커리어(캠퍼스픽)", 200 -> KEEP.

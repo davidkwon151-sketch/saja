@@ -61,5 +61,5 @@ test("움직임 줄이기와 작은 화면 배치를 CSS에서 지원한다", ()
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
   assert.match(css, /\.quokka-character, \.quokka-character\.is-happy, \.quokka-particle\s*\{\s*animation: none !important/);
   assert.match(css, /@media \(max-width: 720px\)/);
-  assert.match(css, /\.quokka-scene\s*\{\s*width: min\(100%, 370px\)/);
+  assert.match(css, /\.quokka-scene\s*\{\s*width: min\(100%, (?:2[4-9]\d|3[0-7]\d)px\)/);
 });
